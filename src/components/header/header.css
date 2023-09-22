@@ -1,0 +1,28 @@
+.header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    background-color: black;
+}
+
+h3 {
+    color: white;
+    font-size: 14px;
+    
+}
+
+.right {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    margin-right: 18px;
+}
+
+.left {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-left: 18px;
+}
