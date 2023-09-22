@@ -46,17 +46,31 @@ class AppContainer extends HTMLElement {
 
   render() {
     if (this.shadowRoot) {
-      this.shadowRoot.innerHTML = `
-            <link href="dist/style.css" rel="stylesheet" />
-            `;
+      const link = this.ownerDocument.createElement("link");
+      link.setAttribute("rel", "stylesheet");
+      link.setAttribute("href", "/src/style.css");
+
+      this.shadowRoot.appendChild(link);
 
       this.header.forEach((nav) => {
         this.shadowRoot?.appendChild(nav);
       });
 
-      this.home.forEach((nav) => {
-        this.shadowRoot?.appendChild(nav);
-      });
+      
+      let mainTitle = this.ownerDocument.createElement("h2");
+      this.shadowRoot?.appendChild(mainTitle);
+      mainTitle.setAttribute("class", "card-title");
+
+      let main = this.ownerDocument.createElement("main");
+      this.shadowRoot?.appendChild(main);
+      mainTitle.textContent = "Ya visitados";
+      main.setAttribute("class", "principal");
+
+      if (main) {
+        this.home.forEach((start) => {
+          main.appendChild(start);
+        });
+      }
     }
   }
 }
