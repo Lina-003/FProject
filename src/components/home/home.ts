@@ -54,7 +54,7 @@ class Home extends HTMLElement {
           
           <section>
           <div class="images">
-          <img src=${this.img} alt="">
+          <img src=${this.img} height="267.57px" weight="200.68px" alt="">
           </div>
 
           <div class="text">

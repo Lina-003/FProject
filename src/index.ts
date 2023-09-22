@@ -2,12 +2,15 @@ import Header from "./components/header/Header";
 import Home from "./components/home/Home";
 import { Attribute } from "./components/header/Header";
 import { Attribute2 } from "./components/home/Home";
+import Recommended, { Attribute3 } from "./components/recommended/Recommended";
 import { data } from "./dataHeader";
 import { tSpot } from "./dataSpot";
+import { rSpots } from "./dataSpot";
 
 class AppContainer extends HTMLElement {
   header: Header[] = [];
   home: Home[] = [];
+  recommended: Recommended[] = [];
 
   constructor() {
     super();
@@ -17,27 +20,38 @@ class AppContainer extends HTMLElement {
       const menuHeader = this.ownerDocument.createElement(
         "app-header"
       ) as Header;
-      // Configura los atributos de Header si es necesario
+      
       menuHeader.setAttribute(Attribute.logo, menu.logo);
       menuHeader.setAttribute(Attribute.regions, menu.regions);
       menuHeader.setAttribute(Attribute.climate, menu.climate);
       menuHeader.setAttribute(Attribute.search, menu.search);
       menuHeader.setAttribute(Attribute.profile, menu.profile);
-      // Agrega Header como hijo de AppContainer
+      
       this.header.push(menuHeader);
-      // Agrega más contenido o configuración específica de AppContainer aquí
+      
     });
 
     tSpot.forEach((spot) => {
       const homeSpot = this.ownerDocument.createElement("app-home") as Home;
-      // Configura los atributos de Header si es necesario
+      
       homeSpot.setAttribute(Attribute2.img, spot.img);
       homeSpot.setAttribute(Attribute2.title, spot.title);
       homeSpot.setAttribute(Attribute2.spot, spot.spot);
-      // Agrega Header como hijo de AppContainer
+      
       this.home.push(homeSpot);
-      // Agrega más contenido o configuración específica de AppContainer aquí
+      
     });
+
+    rSpots.forEach((spots) => {
+        const recommSpot = this.ownerDocument.createElement("app-recommended") as Recommended;
+        
+        recommSpot.setAttribute(Attribute3.img, spots.img);
+        recommSpot.setAttribute(Attribute3.title, spots.title);
+        recommSpot.setAttribute(Attribute3.spot, spots.spot);
+        
+        this.recommended.push(recommSpot);
+        
+      });
   }
 
   connectedCallback() {
@@ -69,6 +83,21 @@ class AppContainer extends HTMLElement {
       if (main) {
         this.home.forEach((start) => {
           main.appendChild(start);
+        });
+      }
+
+      let rTitle = this.ownerDocument.createElement("h2");
+      this.shadowRoot?.appendChild(rTitle);
+      rTitle.setAttribute("class", "card-title");
+
+      let recomm = this.ownerDocument.createElement("Recomm");
+      this.shadowRoot?.appendChild(recomm);
+      rTitle.textContent = "Recomendados";
+      recomm.setAttribute("class", "principal");
+
+      if (recomm) {
+        this.recommended.forEach((start) => {
+          recomm.appendChild(start);
         });
       }
     }
