@@ -8,15 +8,22 @@ export enum Attribute {
 
 class Header extends HTMLElement {
 
-    logo?: string = Attribute.logo;
-    regions?: string = Attribute.regions;
-    climate?: string = Attribute.climate;
-    search?: string = Attribute.search;
-    profile?: string = Attribute.profile;
+    logo?: string;
+    regions?: string;
+    climate?: string;
+    search?: string;
+    profile?: string;
     propName: string | undefined;
 
     static get observedAttributes() {
-        return [Attribute.logo, Attribute.regions, Attribute.climate, Attribute.search, Attribute.profile];
+        const attrs:  Record<Attribute,null> = {
+            logo: null,
+            regions: null,
+            climate: null,
+            search: null,
+            profile: null,
+        }
+        return Object.keys(attrs);
     }
     
 
