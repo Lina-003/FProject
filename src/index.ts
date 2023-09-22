@@ -10,8 +10,8 @@ class AppContainer extends HTMLElement {
         this.attachShadow({ mode: "open" });
         
 
-            data.forEach((menu) => {
-           const menuHeader = this.ownerDocument.createElement("app-header") as Header;
+        data.forEach((menu) => {
+            const menuHeader = this.ownerDocument.createElement("app-header") as Header;
             // Configura los atributos de Header si es necesario
             menuHeader.setAttribute(Attribute.logo, menu.logo);
             menuHeader.setAttribute(Attribute.regions, menu.regions);
