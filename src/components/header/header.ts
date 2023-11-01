@@ -76,8 +76,8 @@ class Header extends HTMLElement {
             <div class="left">
             <img src=${this.logo} height="40np" alt="">
 
-            <h3 href="">Regiones</h3>
-            <h3 href="">Climas</h3>
+            <h3 href=" ">Regiones</h3>
+            <h3 href=" ">Climas</h3>
             </div>
 
             <div class="right">
