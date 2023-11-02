@@ -13,6 +13,7 @@ class Dashboard extends HTMLElement {
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+   
 
     data.forEach((menu) => {
       const menuHeader = this.ownerDocument.createElement(
