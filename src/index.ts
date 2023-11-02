@@ -1,4 +1,4 @@
-import "./screens/dashboard"
+import "./screens/dashboard/dashboard"
 import "./components/index"
 
 
