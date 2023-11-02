@@ -61,7 +61,7 @@ class Dashboard extends HTMLElement {
     if (this.shadowRoot) {
       const link = this.ownerDocument.createElement("link");
       link.setAttribute("rel", "stylesheet");
-      link.setAttribute("href", "/src/screens/style.css");
+      link.setAttribute("href", "/src/screens/dashboard/style.css");
 
       this.shadowRoot.appendChild(link);
 
