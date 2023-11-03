@@ -1,33 +1,44 @@
-import { Header, SelectedSpot} from "../../components/index";
-import { Attribute } from "../../components/header/Header";
+import { Header, SelectedSpot, Recommended } from "../../components/index";
+import { Attribute } from "../../components/Header/Header";
 import { Attribute4 } from "../../components/selectedspot/Selectedspot";
 import { data } from "../../dataHeader";
+import { Attribute3 } from "../../components/recommended/Recommended";
 import { tSpot, rSpots } from "../../dataSpot";
 
 class Place extends HTMLElement {
   header: Header[] = [];
   sSpot: SelectedSpot[] = [];
+  recommended: Recommended[] = [];
 
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
-   
 
     data.forEach((menu) => {
       const menuHeader = this.ownerDocument.createElement(
         "app-header"
       ) as Header;
-      
+
       menuHeader.setAttribute(Attribute.logo, menu.logo);
       menuHeader.setAttribute(Attribute.regions, menu.regions);
       menuHeader.setAttribute(Attribute.climate, menu.climate);
       menuHeader.setAttribute(Attribute.search, menu.search);
       menuHeader.setAttribute(Attribute.profile, menu.profile);
-      
+
       this.header.push(menuHeader);
-      
     });
 
+    rSpots.forEach((spots) => {
+      const recommSpot = this.ownerDocument.createElement(
+        "app-recommended"
+      ) as Recommended;
+
+      recommSpot.setAttribute(Attribute3.img, spots.img);
+      recommSpot.setAttribute(Attribute3.title, spots.title);
+      recommSpot.setAttribute(Attribute3.spot, spots.spot);
+
+      this.recommended.push(recommSpot);
+    });
   }
 
   connectedCallback() {
@@ -42,28 +53,41 @@ class Place extends HTMLElement {
 
       this.shadowRoot.appendChild(link);
 
+      const main = this.ownerDocument.createElement("main");
+      main.classList.add("main-container");
+
       this.header.forEach((nav) => {
-        this.shadowRoot?.appendChild(nav);
+        main.appendChild(nav);
+      });
+      const spot = this.ownerDocument.createElement("app-spot");
+      spot.setAttribute(
+        Attribute4.headerimg,
+        "https://www.eluniversal.com.mx/resizer/7Loc41J5hFF0EhhlDfuOFfrixCE=/1100x666/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/PS36GSZDDNBVDF5HUA2KBNKYL4.jpg"
+      );
+      spot.setAttribute(Attribute4.title, "Caño Cristales");
+      spot.setAttribute(Attribute4.spot, "Sierra de la Macarena, Meta");
+      spot.setAttribute(
+        Attribute4.description,
+        "Caño Cristales es un río de Colombia que está ubicado en la sierra de la Macarena, en el municipio del mismo nombre, en el departamento del Meta."
+      );
+
+      main.appendChild(spot);
+
+      const recommendedContainer = this.ownerDocument.createElement("div");
+      recommendedContainer.classList.add("recommended-container");
+
+      this.recommended.forEach((start) => {
+        recommendedContainer.appendChild(start);
       });
 
-      
-      let mainTitle = this.ownerDocument.createElement("h2");
-      this.shadowRoot?.appendChild(mainTitle);
-      mainTitle.setAttribute("class", "card-title");
+      const titleRecommed = this.ownerDocument.createElement("h6");
+      titleRecommed.textContent = "Lugares recomendados";
+      titleRecommed.setAttribute("class", "title-recommed");
 
-      let main = this.ownerDocument.createElement("main");
-      this.shadowRoot?.appendChild(main);
-      mainTitle.textContent = "Ya visitados";
-      main.setAttribute("class", "principal");
+      main.appendChild(titleRecommed);
+      main.appendChild(recommendedContainer);
 
-      let rTitle = this.ownerDocument.createElement("h2");
-      this.shadowRoot?.appendChild(rTitle);
-      rTitle.setAttribute("class", "card-title");
-
-      let recomm = this.ownerDocument.createElement("Recomm");
-      this.shadowRoot?.appendChild(recomm);
-      rTitle.textContent = "Recomendados";
-      recomm.setAttribute("class", "principal");
+      this.shadowRoot.appendChild(main);
     }
   }
 }
