@@ -36,7 +36,6 @@ class Dashboard extends HTMLElement {
       homeSpot.setAttribute(Attribute2.img, spot.img);
       homeSpot.setAttribute(Attribute2.title, spot.title);
       homeSpot.setAttribute(Attribute2.spot, spot.spot);
-      
       this.home.push(homeSpot);
       
     });

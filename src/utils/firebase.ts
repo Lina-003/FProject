@@ -1,4 +1,4 @@
-import { initializeApp } from "firebase/app";
+/*import { initializeApp } from "firebase/app";
 import {
     createUserWithEmailAndPassword,
     getAuth,
@@ -62,3 +62,4 @@ export default {
     registerUser,
     loginUser
 };
+*/

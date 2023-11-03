@@ -1,6 +1,7 @@
 import "./screens/dashboard/dashboard"
 import "./components/index"
 import "./screens/place/place"
+import "./screens/logIn/logIn"
 
 
 class AppContainer extends HTMLElement {
@@ -15,7 +16,7 @@ class AppContainer extends HTMLElement {
     }
 
     render() {
-        const place = this.ownerDocument.createElement('app-login');
+        const place = this.ownerDocument.createElement('app-dashboard');
         this.shadowRoot?.appendChild(place);
     }
 }

@@ -6,7 +6,7 @@ import Firebase from "../../utils/firebase"
 
 const userPass = {email: "", password: ""};
 
-export default class LogIn extends HTMLElement {
+class LogIn extends HTMLElement {
     constructor() {
         super();
         this.attachShadow({mode: "open"});
@@ -103,4 +103,6 @@ export default class LogIn extends HTMLElement {
     }
 }
 
-customElements.define("app-login", LogIn);*/
+customElements.define("app-login", LogIn);
+export default LogIn;
+*/
