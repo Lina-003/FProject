@@ -6,6 +6,7 @@ import {
     setPersistence,
     browserSessionPersistence
 } from "firebase/auth";
+
 import {getFirestore, collection, addDoc, getDocs, doc, deleteDoc, onSnapshot} from "firebase/firestore";
 import firebaseConfig from "./firebaseConfig"
 
