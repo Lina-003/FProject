@@ -1,3 +1,4 @@
+/*
 import { initializeApp } from "firebase/app";
 import {
     createUserWithEmailAndPassword,
@@ -6,8 +7,6 @@ import {
     setPersistence,
     browserSessionPersistence
 } from "firebase/auth";
-
-import {getFirestore, collection, addDoc, getDocs, doc, deleteDoc, onSnapshot} from "firebase/firestore";
 import firebaseConfig from "./firebaseConfig"
 
 const app = initializeApp(firebaseConfig);
@@ -61,4 +60,4 @@ const loginUser = async ({
 export default {
     registerUser,
     loginUser
-};
+};*/

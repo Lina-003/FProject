@@ -1,16 +1,11 @@
-export type Observer = { render: () => void } & HTMLElement;
+export type Observer = ({ render: () => void } & HTMLElement);
 
 export type AppState = {
-  currentScreen: string; 
-};
+  screen: string
+}
 
 export enum ScreenActions {
-  CHANGE_SCREEN = 'CHANGE_SCREEN', 
+  "NAVIGATE" = "NAVIGATE",
 }
 
-export interface ChangeScreenAction {
-  action: ScreenActions.CHANGE_SCREEN;
-  payload: string;
-}
-
-export type Actions = ChangeScreenAction;
+export type Actions = ScreenActions;
