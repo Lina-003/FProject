@@ -67,26 +67,34 @@ class Header extends HTMLElement {
     }
 
     render() {
-        const searchImg = this.ownerDocument.createElement("img")
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = `
             <link rel="stylesheet" href="../src/components/header/header.css">
-            <section>
-            <div class="header">
-            <div class="left">
-            <img src=${this.logo} height="40np" alt="">
-
-            <h3 href=" ">Regiones</h3>
-            <h3 href=" ">Climas</h3>
-            </div>
-
-            <div class="right">
-            <img src=${this.search} height = "30np" alt="">
-            <img src=${this.profile} height = "30np" alt="">
-            </div>
-            </div>
-            </section>
+                <section>
+                    <div class="header">
+                        <div class="left">
+                            <img src="${this.logo}" height="40np" alt="">
+                            <h3 href=" ">Regiones</h3>
+                            <h3 href=" ">Climas</h3>
+                        </div>
+                        <div class="right">
+                            <div class="search-container">
+                                <input type="text" id="searchInput" placeholder="Search">
+                                <button id="searchButton">Search</button>
+                            </div>
+                            <img src="${this.profile}" height="30np" alt="">
+                        </div>
+                    </div>
+                </section>
             `;
+
+            const searchButton = this.shadowRoot.querySelector("#searchButton");
+            const searchInput = this.shadowRoot.querySelector("#searchInput") as HTMLInputElement; // Conversión de tipo a HTMLInputElement
+
+            if (searchButton) searchButton.addEventListener("click", () => {
+                const searchQuery = searchInput.value;
+                console.log(searchQuery);
+            });
         }
     }
 }

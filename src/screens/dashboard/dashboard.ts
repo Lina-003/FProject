@@ -1,6 +1,6 @@
 import { Header, Home, Recommended} from "../../components/index";
-import { Attribute } from "../../components/Header/Header";
-import { Attribute2 } from "../../components/Home/Home";
+import { Attribute } from "../../components/Header/header";
+import { Attribute2 } from "../../components/Home/home";
 import { Attribute3 } from "../../components/recommended/Recommended";
 import { data } from "../../dataHeader";
 import { tSpot, rSpots } from "../../dataSpot";
@@ -36,7 +36,6 @@ class Dashboard extends HTMLElement {
       homeSpot.setAttribute(Attribute2.img, spot.img);
       homeSpot.setAttribute(Attribute2.title, spot.title);
       homeSpot.setAttribute(Attribute2.spot, spot.spot);
-      
       this.home.push(homeSpot);
       
     });

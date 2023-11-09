@@ -2,5 +2,9 @@ export enum Screens {
     DASHBOARD = "DASHBOARD",
     LOGIN = "LOGIN",
     SIGNUP = "SIGNUP",
-    SPOTSELECT = "SPOTSELECT"
+    SPOTSELECT = "SPOTSELECT",
+    REGIONS = "REGIONS",
+    CLIMATE = "CLIMATE",
+    PROFILE = "PROFILE"
+
   }

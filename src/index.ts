@@ -4,7 +4,6 @@ import "./screens/place/place"
 import { Screens } from "./types/places";
 import { addObserver, appState } from "./store";
 
-
 class AppContainer extends HTMLElement {
 
     constructor(){
@@ -18,10 +17,20 @@ class AppContainer extends HTMLElement {
     }
 
     render() {
+
         if(this.shadowRoot){
             this.shadowRoot.innerHTML = ``;
 
             switch (appState.screen) {
+
+                case Screens.LOGIN:
+                const login = this.ownerDocument.createElement("app-logIn")
+                this.shadowRoot?.appendChild(login)
+                    break;    
+                case Screens.SIGNUP:
+                const signUp = this.ownerDocument.createElement("app-signUp")
+                this.shadowRoot?.appendChild(signUp)
+                    break;
                 case Screens.DASHBOARD:
                 const dashboard = this.ownerDocument.createElement("app-dashboard")
                 this.shadowRoot?.appendChild(dashboard)
@@ -30,6 +39,8 @@ class AppContainer extends HTMLElement {
                 const spotSelect = this.ownerDocument.createElement("app-place")
                 this.shadowRoot?.appendChild(spotSelect)
                     break;
+
+                
             
                 default:
                     break;
