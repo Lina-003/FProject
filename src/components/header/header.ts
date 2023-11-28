@@ -101,8 +101,9 @@ class Header extends HTMLElement {
         divRight.classList.add("class-right");
         
         const search = this.ownerDocument.createElement("input");
-        search.setAttribute("type", "text");
-        search.setAttribute("id", "searchInput");
+        search.setAttribute("type", "search");
+        search.setAttribute("placeholder", "Buscar");
+        search.setAttribute("id", "Buscador");
 
         const searchButton = this.ownerDocument.createElement("button");
         searchButton.textContent = "Buscar";
@@ -113,8 +114,8 @@ class Header extends HTMLElement {
 
         const imgProfile = this.ownerDocument.createElement("img");
         imgProfile.setAttribute("src", `${this.profile}`);
-        imgProfile.setAttribute("height", "30np");
-        imgProfile.style.marginLeft = "35px";
+        imgProfile.setAttribute("height", "35np");
+        imgProfile.style.marginLeft = "50px";
         imgProfile.addEventListener("click", () => {
             dispatch(navigate(Screens.DASHBOARD))
         })
