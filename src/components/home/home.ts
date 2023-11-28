@@ -81,24 +81,6 @@ class Home extends HTMLElement {
       this.shadowRoot?.appendChild(divText);
       this.shadowRoot?.appendChild(textSpot);
       this.shadowRoot?.appendChild(container);
-
-
-
-      /*this.shadowRoot.innerHTML = `
-          <link rel="stylesheet" href="../src/components/home/home.css">
-          
-          <section>
-          <div class="images">
-          <img src=${this.img} height="267.57px" weight="200.68px" alt="">
-          </div>
- 
-          <div class="text">
-          <h1>${this.title}</h1>
-          <h3>${this.spot}</h3>
-          </div>
-          </section>
-          `;*/
-    
   }
 }
 customElements.define("app-home", Home);

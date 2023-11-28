@@ -85,7 +85,6 @@ class SelectedSpot extends HTMLElement {
   }
 
   render() {
-    const searchImg = this.ownerDocument.createElement("img");
     if (this.shadowRoot) {
       this.shadowRoot.innerHTML = `
             <link rel="stylesheet" href="../src/components/selectedspot/Selectedspot.css">

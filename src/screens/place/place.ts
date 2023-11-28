@@ -2,13 +2,13 @@ import { Header, SelectedSpot, /*Recommended*/ } from "../../components/index";
 import { Attribute } from "../../components/Header/header";
 import { Attribute4 } from "../../components/selectedspot/Selectedspot";
 import { data } from "../../dataHeader";
-//import { Attribute3 } from "../../components/recommended/Recommended";
+import Recommended, { Attribute3 } from "../../components/recommended/Recommended";
 import { tSpot, rSpots } from "../../dataSpot";
 
 class Place extends HTMLElement {
   header: Header[] = [];
   sSpot: SelectedSpot[] = [];
-  //recommended: Recommended[] = [];
+  recommended: Recommended[] = [];
 
   constructor() {
     super();
@@ -28,7 +28,7 @@ class Place extends HTMLElement {
       this.header.push(menuHeader);
     });
 
-    /*rSpots.forEach((spots) => {
+    rSpots.forEach((spots) => {
       const recommSpot = this.ownerDocument.createElement(
         "app-recommended"
       ) as Recommended;
@@ -38,7 +38,7 @@ class Place extends HTMLElement {
       recommSpot.setAttribute(Attribute3.spot, spots.spot);
 
       this.recommended.push(recommSpot);
-    });*/
+    });
   }
 
   connectedCallback() {
@@ -73,7 +73,7 @@ class Place extends HTMLElement {
 
       main.appendChild(spot);
 
-      /*const recommendedContainer = this.ownerDocument.createElement("div");
+      const recommendedContainer = this.ownerDocument.createElement("div");
       recommendedContainer.classList.add("recommended-container");
 
       this.recommended.forEach((start) => {
@@ -87,7 +87,7 @@ class Place extends HTMLElement {
       main.appendChild(titleRecommed);
       main.appendChild(recommendedContainer);
 
-      this.shadowRoot.appendChild(main);*/
+      this.shadowRoot.appendChild(main);
     }
   }
 }

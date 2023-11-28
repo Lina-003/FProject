@@ -1,3 +1,9 @@
+import { dispatch } from "../../store";
+import { navigate } from "../../store/actions";
+import { Screens } from "../../types/navigation";
+import { loadCss } from '../../utils/styles';
+import styles from './home.css';
+
 export enum Attribute3 {
     "img" = "img",
     "title" = "title",
@@ -46,22 +52,34 @@ export enum Attribute3 {
     }
   
     render() {
-      if (this.shadowRoot) {
-        this.shadowRoot.innerHTML = `
-            <link rel="stylesheet" href="../src/components/home/home.css">
-            
-            <section>
-            <div class="images">
-            <img src=${this.img} height="267.57px" weight="200.68px" alt="">
-            </div>
+      if (this.shadowRoot) this.shadowRoot.innerHTML = "";
+      loadCss(this, styles)
+
+
+      const container = this.ownerDocument.createElement("section");
+      container.classList.add("class-styles");
+      
+      const imgContent = this.ownerDocument.createElement("img");
+      imgContent.classList.add("class-image");
+      imgContent.setAttribute("src", `${this.img}`);
+      imgContent.setAttribute("height", "267.57px");
+      imgContent.setAttribute("width", "200.68px");
+      imgContent.addEventListener("click", () => {
+        dispatch(navigate(Screens.SPOTSELECT))
+      })
+      
+      const divText = this.ownerDocument.createElement("h1");
+      divText.classList.add("tittle-spot");
+      divText.innerText = `${this.title}`;
+
+      const textSpot = this.ownerDocument.createElement("h3");
+      textSpot.innerText = `${this.spot}`;
+
   
-            <div class="text">
-            <h1>${this.title}</h1>
-            <h3>${this.spot}</h3>
-            </div>
-            </section>
-            `;
-      }
+      this.shadowRoot?.appendChild(imgContent);
+      this.shadowRoot?.appendChild(divText);
+      this.shadowRoot?.appendChild(textSpot);
+      this.shadowRoot?.appendChild(container);
     }
   }
   customElements.define("app-recommended", Recommended);
