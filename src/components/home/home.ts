@@ -1,6 +1,8 @@
 import { dispatch } from "../../store";
 import { navigate } from "../../store/actions";
-import { Screens } from "../../types/places";
+import { Screens } from "../../types/navigation";
+import { loadCss } from '../../utils/styles';
+import styles from './home.css';
 
 export enum Attribute2 {
   "img" = "img",
@@ -47,49 +49,38 @@ class Home extends HTMLElement {
         break;
     }
 
-    this.render();
   }
 
   render() {
 
-    if (this.shadowRoot) {
-      const link = this.ownerDocument.createElement("link");
-      link.setAttribute("rel", "stylesheet");
-      link.setAttribute("href", "../src/components/home/home.css");
-      this.shadowRoot.appendChild(link);
+    if (this.shadowRoot) this.shadowRoot.innerHTML = "";
+      loadCss(this, styles)
 
-      const content = this.ownerDocument.createElement("div");
-      content.classList.add("container");
 
-      const divImg = this.ownerDocument.createElement("div");
-      divImg.classList.add("contentImg");
-
+      const container = this.ownerDocument.createElement("section");
+      container.classList.add("class-styles");
+      
       const imgContent = this.ownerDocument.createElement("img");
       imgContent.classList.add("class-image");
       imgContent.setAttribute("src", `${this.img}`);
       imgContent.setAttribute("height", "267.57px");
       imgContent.setAttribute("width", "200.68px");
-      imgContent.addEventListener("click", ()=>{
-        dispatch(navigate(Screens.SPOTSELECT)) })
-      divImg.appendChild(imgContent);
-
-      const divText = this.ownerDocument.createElement("div");
-      divText.classList.add("contentText");
-
-      const textContent = this.ownerDocument.createElement("h1");
-      textContent.classList.add("class-text");
-      textContent.innerText = `${this.title}`;
+      imgContent.addEventListener("click", () => {
+        dispatch(navigate(Screens.SPOTSELECT))
+      })
+      
+      const divText = this.ownerDocument.createElement("h1");
+      divText.classList.add("tittle-spot");
+      divText.innerText = `${this.title}`;
 
       const textSpot = this.ownerDocument.createElement("h3");
-      textSpot.classList.add("class-text");
       textSpot.innerText = `${this.spot}`;
-      divText.appendChild(textContent);
-      divText.appendChild(textSpot);
 
-      divText.appendChild(divImg);
-      content.appendChild(divText);
-
-      this.shadowRoot.appendChild(content);
+  
+      this.shadowRoot?.appendChild(imgContent);
+      this.shadowRoot?.appendChild(divText);
+      this.shadowRoot?.appendChild(textSpot);
+      this.shadowRoot?.appendChild(container);
 
 
 
@@ -107,7 +98,7 @@ class Home extends HTMLElement {
           </div>
           </section>
           `;*/
-    }
+    
   }
 }
 customElements.define("app-home", Home);

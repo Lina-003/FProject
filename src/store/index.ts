@@ -1,7 +1,7 @@
 import Storage, { PersistanceKeys } from "../utils/storage";
 import { Actions, AppState, Observer } from "../types/store";
 import { reducer } from "./reducer";
-import { Screens } from "../types/places";
+import { Screens } from "../types/navigation";
 
 const emptyState = {
   screen: Screens.DASHBOARD,

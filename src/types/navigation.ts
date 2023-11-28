@@ -1,4 +1,6 @@
 export enum Screens {
-    HOME = "HOME",
-    REGIONS = "REGIONS"
+    DASHBOARD = "DASHBOARD",
+    REGIONS = "REGIONS",
+    SPOTSELECT = "SPOTSELECT",
+    LOGIN = "LOGIN"
 }

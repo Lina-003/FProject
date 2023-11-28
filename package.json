@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Lina-003/FProject#readme",
   "devDependencies": {
+    "css-loader": "^6.8.1",
     "serve": "^14.2.1",
     "ts-loader": "^9.4.4",
     "typescript": "^5.2.2",

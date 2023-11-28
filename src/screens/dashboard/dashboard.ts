@@ -1,7 +1,7 @@
-import { Header, Home, Recommended} from "../../components/index";
+import { Header, Home, /*Recommended*/} from "../../components/index";
 import { Attribute } from "../../components/Header/header";
 import { Attribute2 } from "../../components/Home/home";
-import { Attribute3 } from "../../components/recommended/Recommended";
+import Recommended, { Attribute3 } from "../../components/recommended/Recommended";
 import { data } from "../../dataHeader";
 import { tSpot, rSpots } from "../../dataSpot";
 

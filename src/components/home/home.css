@@ -1,9 +1,11 @@
-.images {
+/*.styles {
     display: grid;
-    border-left: 131px;
-    border-right: 131px;
-}
-
+    gap: 3rem;
+    grid-auto-rows: 22rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    margin: 0 131px 0 131px;
+    place-items: center;
+}*/
 h1 {
     font-family: 'Inter', sans-serif;
     color: white;
@@ -14,12 +16,14 @@ h3 {
     font-family: 'Inter', sans-serif;
     color: white;
     font-size: 12px;
+    
 }
 
 img {
+    display: grid;
     border-radius: 15px;
     height:267.57px;
-    width:100%;
+    width: 100%;
     overflow: hidden;
     object-fit: cover;
 }
