@@ -2,7 +2,7 @@ import { dispatch } from "../../store";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
 import { loadCss } from '../../utils/styles';
-import styles from './home.css';
+import styles from '../Home/home.css';
 
 export enum Attribute3 {
     "img" = "img",
@@ -54,7 +54,6 @@ export enum Attribute3 {
     render() {
       if (this.shadowRoot) this.shadowRoot.innerHTML = "";
       loadCss(this, styles)
-
 
       const container = this.ownerDocument.createElement("section");
       container.classList.add("class-styles");

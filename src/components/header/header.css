@@ -1,4 +1,4 @@
-.header {
+.class-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -14,13 +14,12 @@ h3 {
     font-family: 'Inter', sans-serif;
 }
 
-.right {
+.class-header .class-right {
     display: flex;
     align-items: center;
-    gap: 35px;
 }
 
-.left {
+.class-header .class-left {
     display: flex;
     align-items: center;
     gap: 30px;

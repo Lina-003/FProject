@@ -1,3 +1,9 @@
+import { dispatch } from '../../store';
+import { navigate } from '../../store/actions';
+import { Screens } from '../../types/navigation';
+import { loadCss } from '../../utils/styles';
+import style from './header.css';
+
 export enum Attribute {
     "logo" = "logo",
     "regions" = "regions",
@@ -63,39 +69,69 @@ class Header extends HTMLElement {
             break;
         }
         
-        this.render();
     }
 
     render() {
-        if(this.shadowRoot){
-            this.shadowRoot.innerHTML = `
-            <link rel="stylesheet" href="../src/components/header/header.css">
-                <section>
-                    <div class="header">
-                        <div class="left">
-                            <img src="${this.logo}" height="40np" alt="">
-                            <h3 href=" ">Regiones</h3>
-                            <h3 href=" ">Climas</h3>
-                        </div>
-                        <div class="right">
-                            <div class="search-container">
-                                <input type="text" id="searchInput" placeholder="Search">
-                                <button id="searchButton">Search</button>
-                            </div>
-                            <img src="${this.profile}" height="30np" alt="">
-                        </div>
-                    </div>
-                </section>
-            `;
 
-            const searchButton = this.shadowRoot.querySelector("#searchButton");
-            const searchInput = this.shadowRoot.querySelector("#searchInput") as HTMLInputElement; // Conversión de tipo a HTMLInputElement
+        if (this.shadowRoot) this.shadowRoot.innerHTML = "";
+        loadCss(this, style);
 
-            if (searchButton) searchButton.addEventListener("click", () => {
-                const searchQuery = searchInput.value;
-                console.log(searchQuery);
-            });
-        }
+        const container = this.ownerDocument.createElement("section");
+        container.classList.add("class-header");
+        
+        
+        const divLeft = this.ownerDocument.createElement("div");
+        divLeft.classList.add("class-left");
+        const imgLogo = this.ownerDocument.createElement("img");
+        imgLogo.setAttribute("src", `${this.logo}`);
+        imgLogo.setAttribute("height", "40np");
+        imgLogo.addEventListener("click", () => {
+            dispatch(navigate(Screens.DASHBOARD))
+        })
+        
+        const textReg = this.ownerDocument.createElement("h3");
+        textReg.innerText = `${this.regions}`;
+        textReg.setAttribute("href", "")
+        
+        const textClim = this.ownerDocument.createElement("h3");
+        textClim.innerText = `${this.climate}`;
+        textClim.setAttribute("href", "")
+        
+        const divRight = this.ownerDocument.createElement("div");
+        divRight.classList.add("class-right");
+        
+        const search = this.ownerDocument.createElement("input");
+        search.setAttribute("type", "text");
+        search.setAttribute("id", "searchInput");
+
+        const searchButton = this.ownerDocument.createElement("button");
+        searchButton.textContent = "Buscar";
+        searchButton.addEventListener("click", () => {
+            const searchQuery = search.value;
+            console.log(searchQuery);
+        });
+
+        const imgProfile = this.ownerDocument.createElement("img");
+        imgProfile.setAttribute("src", `${this.profile}`);
+        imgProfile.setAttribute("height", "30np");
+        imgProfile.style.marginLeft = "35px";
+        imgProfile.addEventListener("click", () => {
+            dispatch(navigate(Screens.DASHBOARD))
+        })
+        
+        divLeft.appendChild(imgLogo);
+        divLeft.appendChild(textReg);
+        divLeft.appendChild(textClim);
+
+        divRight.appendChild(search);
+        divRight.appendChild(searchButton);
+        divRight.appendChild(imgProfile);
+
+        container.appendChild(divLeft);
+        container.appendChild(divRight);
+
+        this.shadowRoot?.appendChild(container);
+        
     }
 }
 customElements.define("app-header", Header);

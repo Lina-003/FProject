@@ -23,7 +23,6 @@ class Dashboard extends HTMLElement {
       menuHeader.setAttribute(Attribute.logo, menu.logo);
       menuHeader.setAttribute(Attribute.regions, menu.regions);
       menuHeader.setAttribute(Attribute.climate, menu.climate);
-      menuHeader.setAttribute(Attribute.search, menu.search);
       menuHeader.setAttribute(Attribute.profile, menu.profile);
       
       this.header.push(menuHeader);
