@@ -31,11 +31,20 @@ button {
     cursor: pointer;
 }
 
+.class-header .class-right button:hover {
+    background-color: #d1d1d1;
+}
+
 h3 {
     color: white;
     font-size: 14px;
     font-weight:500;
     font-family: 'Inter', sans-serif;
+    cursor: pointer;
+}
+
+img {
+    cursor: pointer;
 }
 
 .class-header .class-right {

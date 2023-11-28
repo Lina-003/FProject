@@ -91,11 +91,15 @@ class Header extends HTMLElement {
         
         const textReg = this.ownerDocument.createElement("h3");
         textReg.innerText = `${this.regions}`;
-        textReg.setAttribute("href", "")
+        textReg.addEventListener("click", () => {
+            dispatch(navigate(Screens.REGIONS))
+        })
         
         const textClim = this.ownerDocument.createElement("h3");
         textClim.innerText = `${this.climate}`;
-        textClim.setAttribute("href", "")
+        textClim.addEventListener("click", () => {
+            dispatch(navigate(Screens.DASHBOARD))
+        })
         
         const divRight = this.ownerDocument.createElement("div");
         divRight.classList.add("class-right");

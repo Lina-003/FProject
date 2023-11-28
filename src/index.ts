@@ -1,6 +1,7 @@
 import "./screens/dashboard/dashboard"
 import "./components/index"
 import "./screens/place/place"
+import "./screens/Region/Region"
 import { Screens } from "./types/navigation";
 import { addObserver, appState } from "./store";
 
@@ -39,6 +40,10 @@ class AppContainer extends HTMLElement {
                 case Screens.SPOTSELECT:
                 const spotSelect = this.ownerDocument.createElement("app-place")
                 this.shadowRoot?.appendChild(spotSelect)
+                    break;
+                case Screens.REGIONS:
+                const region = this.ownerDocument.createElement("app-region")
+                this.shadowRoot?.appendChild(region)
                     break;
 
                 

@@ -1,9 +1,9 @@
-import { Header, SelectedSpot, /*Recommended*/ } from "../../components/index";
+import { Header, SelectedSpot, Recommended } from "../../components/index";
 import { Attribute } from "../../components/Header/header";
 import { Attribute4 } from "../../components/selectedspot/Selectedspot";
 import { data } from "../../dataHeader";
-import Recommended, { Attribute3 } from "../../components/recommended/Recommended";
-import { tSpot, rSpots } from "../../dataSpot";
+import { Attribute3 } from "../../components/recommended/Recommended";
+import { rSpots } from "../../dataSpot";
 
 class Place extends HTMLElement {
   header: Header[] = [];
