@@ -1,0 +1,42 @@
+body {
+    background-color: #0B0B0B;
+}
+
+h1 {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-size: 15px;
+}
+
+h2 {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-size: 35px;
+    margin-left: 131px;
+}
+
+h3 {
+    font-family: 'Inter', sans-serif;
+    color: white;
+    font-size: 12px;
+}
+
+.principal {
+    display: grid;
+    gap: 3rem;
+    grid-auto-rows: 22rem;
+    grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+    margin: 0 131px 0 131px;
+    place-items: center;
+}
+
+.card-description {
+    display: flex;
+    margin-left: 130px;
+    margin-right: 130px;
+    margin-bottom: 30px;
+    font-size: 15px;
+    font-weight: normal;
+    line-height: 25px;
+}
+

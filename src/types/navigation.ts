@@ -1,6 +1,7 @@
 export enum Screens {
     DASHBOARD = "DASHBOARD",
     REGIONS = "REGIONS",
+    CLIMATE = "CLIMATE",
     SPOTSELECT = "SPOTSELECT",
     LOGIN = "LOGIN"
 }

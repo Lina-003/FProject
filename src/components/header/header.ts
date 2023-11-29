@@ -98,7 +98,7 @@ class Header extends HTMLElement {
         const textClim = this.ownerDocument.createElement("h3");
         textClim.innerText = `${this.climate}`;
         textClim.addEventListener("click", () => {
-            dispatch(navigate(Screens.DASHBOARD))
+            dispatch(navigate(Screens.CLIMATE))
         })
         
         const divRight = this.ownerDocument.createElement("div");
