@@ -8,6 +8,8 @@ export enum Attribute2 {
   "img" = "img",
   "title" = "title",
   "spot" = "spot",
+  "region" = "region",
+  "climate" = "climate"
 }
 
 class Home extends HTMLElement {
