@@ -25,7 +25,7 @@ class Signin extends HTMLElement {
         const response = await firebase.registerUser(userFields)
         if (response === undefined || response === null){
             alert("Can't register, try again!")
-        } else if (response){
+        } else if (response) {
             alert("Correctly registered!")
             dispatch(navigate(Screens.LOGIN));
         }
