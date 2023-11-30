@@ -66,7 +66,7 @@ class Place extends HTMLElement {
       spot.setAttribute(Attribute4.title, "Caño Cristales");
       spot.setAttribute(Attribute4.spot, "Sierra de la Macarena, Meta");
       spot.setAttribute(
-        Attribute4.description,
+        Attribute4.descript,
         "Caño Cristales es un río de Colombia que está ubicado en la sierra de la Macarena, en el municipio del mismo nombre, en el departamento del Meta."
       );
 
