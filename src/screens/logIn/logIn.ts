@@ -3,6 +3,7 @@ import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
 import firebase from "../../utils/firebase/firebase";
 import { loadCss } from "../../utils/styles";
+import image from "../../components/imgheader"
 import styles from './logIn.css';
 
 const userPass = {
@@ -48,7 +49,7 @@ class LogIn extends HTMLElement {
             const divLogo = this.ownerDocument.createElement("div");
             divLogo.classList.add("class-logo");
             const imgLogo = document.createElement('img');
-            imgLogo.setAttribute("src", "./src/components/imgheader/quiwe2.png")
+            imgLogo.setAttribute("src", "../src/components/imgheader/quiwe2.png")
             
             const divInputs = this.ownerDocument.createElement("div");
             const email = this.ownerDocument.createElement("h3");
