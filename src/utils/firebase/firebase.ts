@@ -14,17 +14,18 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
 
-/*const registerUser = async ({
-                                email,
-                                username,
-                                password,
-                            }: {
+
+
+
+const registerUser = async ({ email, username, password,}:
+    {
     email: string;
     username: string;
     password: string;
-}): Promise<boolean> => {
+}): 
+Promise<boolean> => {
     try {
-        const userCredential = await createUserWithEmailAndPassword(
+        const userCredential = await createUserWithEmailAndPassword (
             auth,
             email,
             password
@@ -39,7 +40,7 @@ const auth = getAuth(app);
     }
 };
 
-const loginUser = async ({
+/*const loginUser = async ({
                              email,
                              password,
                          }: {
@@ -78,8 +79,8 @@ const getProductsFromDB = async (): Promise<Product[]> => {
 }
 
 export default {
-    /*registerUser,
-    loginUser,*/
+    registerUser,
+    /*loginUser,*/
     saveProductInDB,
     getProductsFromDB
 };
