@@ -1,3 +1,4 @@
+import { getAuth, signOut } from 'firebase/auth';
 import { dispatch } from '../../store';
 import { navigate } from '../../store/actions';
 import { Screens } from '../../types/navigation';
@@ -120,10 +121,54 @@ class Header extends HTMLElement {
         imgProfile.setAttribute("src", `${this.profile}`);
         imgProfile.setAttribute("height", "35np");
         imgProfile.style.marginLeft = "50px";
+
+        const dropdownMenu = this.ownerDocument.createElement("div");
+        dropdownMenu.classList.add("dropdown-menu");
+        dropdownMenu.style.display = "none";
+
+        const menuOptions = ["Ver perfil", "Log out"];
+
+
+        const handleProfileClick = () => {
+            console.log("Clic en Ver perfil");
+            dispatch(navigate(Screens.REGIONS))
+        };
+
+        const handleLogOutClick = async () => {
+            try {
+                const auth = getAuth();
+                await signOut(auth);
+                alert("Cierre de sesión exitoso");
+                dispatch(navigate(Screens.LOGIN));
+            } catch (error) {
+                alert("Error al cerrar sesión:");
+            }
+        };
+
+        menuOptions.forEach(optionText => {
+            const menuItem = this.ownerDocument.createElement("div");
+            menuItem.textContent = optionText;
+
+        switch (optionText) {
+            case "Ver perfil":
+            menuItem.addEventListener("click", handleProfileClick);
+            break;
+            case "Log out":
+            menuItem.addEventListener("click", handleLogOutClick);
+            break;
+            default:
+            break;
+        }
+
+        dropdownMenu.appendChild(menuItem);
+        });
+
         imgProfile.addEventListener("click", () => {
-            dispatch(navigate(Screens.DASHBOARD))
-        })
-        
+            console.log("Clic en la foto de perfil");
+            dropdownMenu.style.display = (dropdownMenu.style.display === "block") ? "none" : "block";
+        });
+
+
         divLeft.appendChild(imgLogo);
         divLeft.appendChild(textReg);
         divLeft.appendChild(textClim);
@@ -131,12 +176,13 @@ class Header extends HTMLElement {
         divRight.appendChild(search);
         divRight.appendChild(searchButton);
         divRight.appendChild(imgProfile);
+        divRight.appendChild(dropdownMenu);
 
         container.appendChild(divLeft);
         container.appendChild(divRight);
 
         this.shadowRoot?.appendChild(container);
-        
+       
     }
 }
 customElements.define("app-header", Header);

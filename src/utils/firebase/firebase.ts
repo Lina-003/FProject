@@ -4,7 +4,8 @@ import {
     getAuth,
     signInWithEmailAndPassword,
     setPersistence,
-    browserSessionPersistence
+    browserSessionPersistence,
+    signOut
 } from "firebase/auth";
 import firebaseConfig from "./firebaseConfig"
 import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
@@ -13,6 +14,12 @@ import { Product } from "../../types/products";
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 const auth = getAuth(app);
+
+signOut(auth).then(() => {
+  // Sign-out successful.
+}).catch((error) => {
+  // An error happened.
+});
 
 const registerUser = async ({ email, username, password,}:
     {
