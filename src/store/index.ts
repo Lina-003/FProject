@@ -4,7 +4,7 @@ import { reducer } from "./reducer";
 import { Screens } from "../types/navigation";
 
 const emptyState = {
-  screen: Screens.DASHBOARD,
+  screen: Screens.LOGIN,
   products: [],
 };
 

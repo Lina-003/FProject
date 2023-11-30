@@ -63,40 +63,52 @@ class LogIn extends HTMLElement {
             break;
         }
         
-        this.render();
     }
 
     render() {
-        if(this.shadowRoot){
-            this.shadowRoot.innerHTML = `
-            <link rel="stylesheet" href="../src/components/header/header.css">
-                <section>
-                    <div class="logo">
-                    <img src="${this.logo}" height="100np" alt="">
-                    </div>
-                        <div class="datos">
-                            <h3>Usuario o e-mail</h3>
-                            <h3>Contraseña</h3>
-                        </div>
-                        <div class="ingreso">
-                            <div class="button-enter">
-                                <button id="enter">Ingresar</button>
-                            </div>
-                            <p>No tengo una cuenta</p>
-                        </div>
-                    
-                </section>
-            `;
+        if (this.shadowRoot) {
+            const link = this.ownerDocument.createElement("link");
+            link.setAttribute("rel", "stylesheet");
+            link.setAttribute("href", "/src/screens/logIn/logIn.css");
+      
+            this.shadowRoot.appendChild(link);
 
-            const button = this.shadowRoot.querySelector("#button");
-            const searchInput = this.shadowRoot.querySelector("#searchInput") as HTMLInputElement;
+            const container = this.ownerDocument.createElement("section");
+            container.classList.add("class-login");
 
-            if (button) button.addEventListener("click", () => {
-                const searchQuery = searchInput.value;
-                console.log(searchQuery);
-            });
+            const divLogo = this.ownerDocument.createElement("div");
+            divLogo.classList.add("class-logo");
+            const imgLogo = document.createElement('img');
+            imgLogo.setAttribute("src", "/src/components/imgheader/quiwe2.png")
+            
+            const divInputs = this.ownerDocument.createElement("div");
+            const email = this.ownerDocument.createElement("h3");
+            email.textContent = "Correo electrónico";
+            
+            const emInput = this.ownerDocument.createElement("input");
+            emInput.setAttribute("placeholder", "Correo electrónico");
+            emInput.setAttribute("id", "Correo electrónico");
+
+            const password = this.ownerDocument.createElement("h3");
+            password.textContent = "Contraseña";
+            
+            const passInput = this.ownerDocument.createElement("input");
+            passInput.setAttribute("placeholder", "Contraseña");
+            passInput.setAttribute("id", "Contraseña");
+
+            divLogo.appendChild(imgLogo);
+            divInputs.appendChild(email);
+            divInputs.appendChild(emInput);
+            divInputs.appendChild(password);
+            divInputs.appendChild(passInput);
+
+            container.appendChild(divLogo);
+            container.appendChild(divInputs);
+
+            this.shadowRoot?.appendChild(container);
+            
         }
     }
 }
-customElements.define("app-logIn", LogIn);
+customElements.define("log-in", LogIn);
 export default LogIn;

@@ -3,6 +3,7 @@ import "./components/index"
 import "./screens/place/place"
 import "./screens/Region/Region"
 import "./screens/Climate/Climate"
+import "./screens/logIn/logIn"
 import { Screens } from "./types/navigation";
 import { addObserver, appState } from "./store";
 
@@ -26,11 +27,11 @@ class AppContainer extends HTMLElement {
 
             switch (appState.screen) {
 
-                 /*case Screens.LOGIN:
-                const login = this.ownerDocument.createElement("app-logIn")
+                 case Screens.LOGIN:
+                const login = this.ownerDocument.createElement("log-in")
                 this.shadowRoot?.appendChild(login)
                     break;    
-                case Screens.SIGNUP:
+                /*case Screens.SIGNUP:
                 const signUp = this.ownerDocument.createElement("app-signUp")
                 this.shadowRoot?.appendChild(signUp)
                     break;*/
