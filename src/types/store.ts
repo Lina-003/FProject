@@ -3,7 +3,8 @@ import { Product } from "./products";
 export type Observer = ({ render: () => void } & HTMLElement);
 
 export type AppState = {
-  screen: string
+  products: Product[];
+  screen: string;
 }
 
 export enum ScreenActions {
