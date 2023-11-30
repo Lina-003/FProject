@@ -2,30 +2,27 @@ import { dispatch } from "../../store";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
 
-class LogIn extends HTMLElement {
+class Signin extends HTMLElement {
 
-
-    constructor() {
+    constructor(){
         super();
         this.attachShadow({mode: "open"});
     }
 
     connectedCallback() {
-        this.render();
+        this.render()
     }
-
-    
 
     render() {
         if (this.shadowRoot) {
             const link = this.ownerDocument.createElement("link");
             link.setAttribute("rel", "stylesheet");
-            link.setAttribute("href", "/src/screens/logIn/logIn.css");
+            link.setAttribute("href", "/src/screens/signIn/signIn.css");
       
             this.shadowRoot.appendChild(link);
 
             const container = this.ownerDocument.createElement("section");
-            container.classList.add("class-login");
+            container.classList.add("class-signin");
 
             const divLogo = this.ownerDocument.createElement("div");
             divLogo.classList.add("class-logo");
@@ -33,6 +30,13 @@ class LogIn extends HTMLElement {
             imgLogo.setAttribute("src", "/src/components/imgheader/quiwe2.png")
             
             const divInputs = this.ownerDocument.createElement("div");
+            const name = this.ownerDocument.createElement("h3");
+            name.textContent = "Nombre";
+            
+            const nInput = this.ownerDocument.createElement("input");
+            nInput.setAttribute("placeholder", "Nombre");
+            nInput.setAttribute("id", "Nombre");
+
             const email = this.ownerDocument.createElement("h3");
             email.textContent = "Correo electrónico";
             
@@ -49,7 +53,7 @@ class LogIn extends HTMLElement {
             
             const divButton = this.ownerDocument.createElement("div");
             const button = this.ownerDocument.createElement("button");
-            button.textContent = "Ingresar";
+            button.textContent = "Registrarse";
             button.addEventListener("click", () => {
                 dispatch(navigate(Screens.DASHBOARD))
             })
@@ -57,13 +61,15 @@ class LogIn extends HTMLElement {
             const divAcc = this.ownerDocument.createElement("div");
             divAcc.classList.add("class-acc");
             const alrdAcc = this.ownerDocument.createElement("h3");
-            alrdAcc.textContent = "No tengo una cuenta";
+            alrdAcc.textContent = "Ya tengo una cuenta";
             alrdAcc.addEventListener("click", () => {
-                dispatch(navigate(Screens.SIGNIN))
+                dispatch(navigate(Screens.LOGIN))
             })
             
 
             divLogo.appendChild(imgLogo);
+            divInputs.appendChild(name);
+            divInputs.appendChild(nInput);
             divInputs.appendChild(email);
             divInputs.appendChild(emInput);
             divInputs.appendChild(password);
@@ -81,5 +87,5 @@ class LogIn extends HTMLElement {
         }
     }
 }
-customElements.define("log-in", LogIn);
-export default LogIn;
+
+customElements.define('sign-in', Signin)

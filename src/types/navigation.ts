@@ -3,5 +3,6 @@ export enum Screens {
     REGIONS = "REGIONS",
     CLIMATE = "CLIMATE",
     SPOTSELECT = "SPOTSELECT",
-    LOGIN = "LOGIN"
+    LOGIN = "LOGIN",
+    SIGNIN = "SIGNIN"
 }

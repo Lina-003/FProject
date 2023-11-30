@@ -4,6 +4,7 @@ import "./screens/place/place"
 import "./screens/Region/Region"
 import "./screens/Climate/Climate"
 import "./screens/logIn/logIn"
+import "./screens/signIn/signIn"
 import { Screens } from "./types/navigation";
 import { addObserver, appState } from "./store";
 
@@ -31,10 +32,10 @@ class AppContainer extends HTMLElement {
                 const login = this.ownerDocument.createElement("log-in")
                 this.shadowRoot?.appendChild(login)
                     break;    
-                /*case Screens.SIGNUP:
-                const signUp = this.ownerDocument.createElement("app-signUp")
-                this.shadowRoot?.appendChild(signUp)
-                    break;*/
+                case Screens.SIGNIN:
+                const signIn = this.ownerDocument.createElement("sign-in")
+                this.shadowRoot?.appendChild(signIn)
+                    break;
                 case Screens.DASHBOARD:
                 const dashboard = this.ownerDocument.createElement("app-dashboard")
                 this.shadowRoot?.appendChild(dashboard)
