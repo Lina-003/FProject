@@ -2,6 +2,8 @@ import { addObserver, dispatch } from "../../store";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
 import firebase from "../../utils/firebase/firebase";
+import { loadCss } from "../../utils/styles";
+import styles from './signIn.css'
 
 const userFields = {
     username: "",
@@ -32,12 +34,8 @@ class Signin extends HTMLElement {
     }
 
     render() {
-        if (this.shadowRoot) {
-            const link = this.ownerDocument.createElement("link");
-            link.setAttribute("rel", "stylesheet");
-            link.setAttribute("href", "/src/screens/signIn/signIn.css");
-      
-            this.shadowRoot.appendChild(link);
+        if (this.shadowRoot) this.shadowRoot.innerHTML = "";
+        loadCss(this, styles);
 
             const container = this.ownerDocument.createElement("section");
             container.classList.add("class-signin");
@@ -132,7 +130,7 @@ class Signin extends HTMLElement {
 
             this.shadowRoot?.appendChild(container);
             
-        }
+        
     }
 }
 

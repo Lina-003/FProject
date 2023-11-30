@@ -126,13 +126,7 @@ class Header extends HTMLElement {
         dropdownMenu.classList.add("dropdown-menu");
         dropdownMenu.style.display = "none";
 
-        const menuOptions = ["Ver perfil", "Log out"];
-
-
-        const handleProfileClick = () => {
-            console.log("Clic en Ver perfil");
-            dispatch(navigate(Screens.REGIONS))
-        };
+        const menuOptions = ["Log out"];
 
         const handleLogOutClick = async () => {
             try {
@@ -150,9 +144,6 @@ class Header extends HTMLElement {
             menuItem.textContent = optionText;
 
         switch (optionText) {
-            case "Ver perfil":
-            menuItem.addEventListener("click", handleProfileClick);
-            break;
             case "Log out":
             menuItem.addEventListener("click", handleLogOutClick);
             break;

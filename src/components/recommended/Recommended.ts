@@ -2,7 +2,7 @@ import { dispatch } from "../../store";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
 import { loadCss } from '../../utils/styles';
-import styles from '../Home/home.css';
+import styles from './Recommended.css';
 
 export enum Attribute3 {
     "img" = "img",

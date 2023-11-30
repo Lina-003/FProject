@@ -3,6 +3,8 @@ import { Attribute } from "../../components/Header/header";
 import { Attribute2 } from "../../components/Home/home";
 import { data } from "../../dataHeader";
 import { rSpots } from "../../dataSpot";
+import styles from './Climate.css';
+import { loadCss } from "../../utils/styles";
 
 class Climate extends HTMLElement {
   header: Header[] = [];
@@ -45,12 +47,8 @@ class Climate extends HTMLElement {
   }
 
   render() {
-    if (this.shadowRoot) {
-      const link = this.ownerDocument.createElement("link");
-      link.setAttribute("rel", "stylesheet");
-      link.setAttribute("href", "/src/screens/Climate/Climate.css");
-
-      this.shadowRoot.appendChild(link);
+    if (this.shadowRoot) this.shadowRoot.innerHTML = "";
+        loadCss(this, styles);
 
       this.header.forEach((nav) => {
         this.shadowRoot?.appendChild(nav);
@@ -134,7 +132,7 @@ class Climate extends HTMLElement {
         )
       );
       this.shadowRoot?.appendChild(paramo);
-    }
+    
   }
 }
 

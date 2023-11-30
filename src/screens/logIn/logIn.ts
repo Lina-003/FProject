@@ -2,6 +2,8 @@ import { addObserver, dispatch } from "../../store";
 import { navigate } from "../../store/actions";
 import { Screens } from "../../types/navigation";
 import firebase from "../../utils/firebase/firebase";
+import { loadCss } from "../../utils/styles";
+import styles from './logIn.css';
 
 const userPass = {
     email: "", 
@@ -32,12 +34,8 @@ class LogIn extends HTMLElement {
     }
 
     render() {
-        if (this.shadowRoot) {
-            const link = this.ownerDocument.createElement("link");
-            link.setAttribute("rel", "stylesheet");
-            link.setAttribute("href", "/src/screens/logIn/logIn.css");
-      
-            this.shadowRoot.appendChild(link);
+        if (this.shadowRoot) this.shadowRoot.innerHTML = "";
+        loadCss(this, styles);
 
             const container = this.ownerDocument.createElement("section");
             container.classList.add("class-login");
@@ -105,7 +103,7 @@ class LogIn extends HTMLElement {
 
             this.shadowRoot?.appendChild(container);
             
-        }
+        
     }
 }
 customElements.define("log-in", LogIn);

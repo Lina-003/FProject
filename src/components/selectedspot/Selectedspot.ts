@@ -1,3 +1,6 @@
+import { loadCss } from "../../utils/styles";
+import styles from './Selectedspot.css';
+
 export enum Attribute4 {
   "headerimg" = "headerimg",
   "title" = "title",
@@ -84,15 +87,11 @@ class SelectedSpot extends HTMLElement {
   }
 
   render() {
-    if (this.shadowRoot) {
-      const link = this.ownerDocument.createElement("link");
-      link.setAttribute("rel", "stylesheet");
-      link.setAttribute("href", "../src/components/selectedspot/Selectedspot.css");
-  
-      this.shadowRoot.appendChild(link);
+      if (this.shadowRoot) this.shadowRoot.innerHTML = "";
+        loadCss(this, styles);
   
       const section = this.ownerDocument.createElement("section");
-      this.shadowRoot.appendChild(section);
+      this.shadowRoot?.appendChild(section);
   
       const divImg = this.ownerDocument.createElement("div");
       divImg.setAttribute("class", "images");
@@ -182,7 +181,7 @@ class SelectedSpot extends HTMLElement {
       restaurantOption2.setAttribute("value", "restaurant");
       restaurantOption2.textContent = "Restaurante B";
       restaurantSelect.appendChild(restaurantOption2);
-    }
+    
   }
   
 }

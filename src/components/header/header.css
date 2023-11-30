@@ -70,9 +70,12 @@ img {
     font-weight:500;
     font-family: 'Inter', sans-serif;
     margin-left: 500px;
-    margin-top: 130px;
+    margin-top: 115px;
     cursor: pointer;
     line-height: 2;
+    padding: 6px;
+    border: 1px solid #ededed;
+    width: 52px;
     
 }
 

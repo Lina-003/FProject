@@ -3,6 +3,8 @@ import { Attribute } from "../../components/Header/header";
 import { Attribute2 } from "../../components/Home/home";
 import { data } from "../../dataHeader";
 import { rSpots } from "../../dataSpot";
+import { loadCss } from "../../utils/styles";
+import styles from './Regions.css';
 
 class Region extends HTMLElement {
   header: Header[] = [];
@@ -45,12 +47,8 @@ class Region extends HTMLElement {
   }
 
   render() {
-    if (this.shadowRoot) {
-      const link = this.ownerDocument.createElement("link");
-      link.setAttribute("rel", "stylesheet");
-      link.setAttribute("href", "/src/screens/Region/Regions.css");
-
-      this.shadowRoot.appendChild(link);
+    if (this.shadowRoot) this.shadowRoot.innerHTML = "";
+        loadCss(this, styles);
 
       this.header.forEach((nav) => {
         this.shadowRoot?.appendChild(nav);
@@ -152,7 +150,7 @@ class Region extends HTMLElement {
         )
       );
       this.shadowRoot?.appendChild(mainPacif);
-    }
+    
   }
 }
 

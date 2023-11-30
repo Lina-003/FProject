@@ -1,6 +1,8 @@
 import { dispatch } from "../../store";
 import { saveProduct } from "../../store/actions";
 import { Product } from "../../types/products"
+import { loadCss } from '../../utils/styles';
+import style from './Comment.css';
 
 const userInput: Product = {
     comm: ""
@@ -17,7 +19,8 @@ class Comment extends HTMLElement {
     }
 
     render() {
-        if(this.shadowRoot) this.shadowRoot.innerHTML = ""
+        if (this.shadowRoot) this.shadowRoot.innerHTML = "";
+        loadCss(this, style);
 
         const comm = this.ownerDocument.createElement("textarea");
         comm.addEventListener("change", (e: any) => {
