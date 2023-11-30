@@ -156,8 +156,8 @@ export const tSpot = [
     {
       name: "r_dalias",
       img: "https://colombiavisible.com/wp-content/uploads/2022/06/Las-Dalias-1536x864.jpg",
-      title: "Reserva Natural y Ecoturística Las Dalias",
-      spot: " La Montañita, Vereda Los Morros, Caquetá",
+      title: "Reserva Natural Las Dalias",
+      spot: " La Montañita, Caquetá",
       description: "Se trata de una reserva de alrededor de 80 hectáreas que ofrece atractivos naturales como los arroyos Agua Bonita y La Cajona, así como una serie de cuevas con una longitud promedio de 100 metros y una cascada de 12 metros de altura, entre varios otros pozos y piscinas naturales.\nDe la misma manera se pueden avistar varias especies de la fauna amazónica como tigrillos, armadillos y una gran variedad de primates.",
       region: "Amazónica",
       climate: "Calido",
@@ -446,7 +446,7 @@ export const tSpot = [
     {
       name: "s_flamencos",
       img: "https://i0.wp.com/itinerantlawyer.travel/wp-content/uploads/2022/07/Santuario-Los-Flamencos-Portada.jpg?fit=1280%2C860&ssl=1",
-      title: "Santuario de Fauna y Flora Los Flamencos",
+      title: "Santuario Los Flamencos",
       spot: "Boca, La Guajira",
       description: "Uno de los espectáculos que podrá disfrutar el visitante es la quietud de los cielos azules y despejados de la península de La Guajira, inte­rrumpida por arreboles de un rosado intenso que se disuelven en espirales sobre las lagunas del Santuario. Se trata de bandadas de flamencos, aves esbeltas de plumaje rosa que dan el nombre a esta área protegida. Los gráciles flamencos y el majestuoso colorido de su plumaje son el principal atractivo del Santuario, que a pesar de su reducida extensión, es considerado una de las áreas protegidas más ricas en variedad de aves acuáticas residentes y migratorias.",
       region: "Caribe",
@@ -556,7 +556,7 @@ export const tSpot = [
     {
       name: "p_tierradentro",
       img: "https://colombiavisible.com/wp-content/uploads/2022/01/5-2-1536x864.jpg",
-      title: "Parque Arqueológico Nacional de Tierradentro",
+      title: "Parque Arqueológico Tierradentro",
       spot: "Tierradentro, Cauca",
       description: "Desde 1995, el Parque Arqueológico Nacional de Tierradentro es Patrimonio de la Humanidad de la UNESCO. En esta reserva arqueológica hay vestigios de sociedades agrícolas que habitaron el territorio entre el 600 y el 900 d.C, hoy expuestas en un museo.\nAunque en Tierradentro hay un área extensa de hipogeos y estatuas, tres sitios arqueológicos se destacan sobre los demás: el Alto del Aguacate, el Alto de San Andrés y el Alto del Duende. Además del Museo Arqueológico, el Museo Etnográfico de Tierradentro también abre sus puertas a visitantes.",
       region: "Pacifico",
@@ -606,7 +606,7 @@ export const tSpot = [
     {
       name: "p_farallones",
       img: "https://traveler.marriott.com/es/wp-content/uploads/sites/2/2020/11/GI-1054830418-FarallonesMountains.jpg",
-      title: "Parque Nacional Natural Los Farallones",
+      title: "Parque Natural Los Farallones",
       spot: "Cali, Valle del Cauca",
       description: "Los Farallones de Cali son las formaciones rocosa más jóvenes de la Cordillera Oriental y el parque es el área protegida más grande del Valle del Cauca en la que se conservan más de 540 especies de aves, por lo que el avistamiento es uno de los principales atractivos del lugar. Además, en su territorio nacen 30 ríos y se pueden visitar varias cascadas y senderos, de los cuales el más popular es el Pico del Loro, cuyo recorrido dura aproximadamente 3 horas y desde cuya cima se puede observar la cordillera occidental.",
       region: "Pacifico",
@@ -626,7 +626,7 @@ export const tSpot = [
     {
       name: "b_milagros",
       img: "https://upload.wikimedia.org/wikipedia/commons/5/59/Basilica-nuestro-se%C3%B1or-de-los-milagros-buga.jpg",
-      title: "Basílica Menor del Señor de los Milagros",
+      title: "Basílica del Señor de los Milagros",
       spot: "Guadalajara de Buga, Valle del Cauca",
       description: "Basílica de Buga Señor de los Milagros de grandes dimensiones al que acuden los turistas religiosos de todas las clases sociales del país, alberga la imagen del Señor de los Milagros reconocida por la fe de sus devotos. La basílica se ha convertido en un museo por todos los elementos constructivos y de ornamentación que posee, entre los que se cuentan un órgano tubular de 1935 que tiene 25 voces o juegos de flautas, 2 teclados manuales y uno de pedal. El campanario está compuesto de 5 campanas que dan las notas musicales mi, fa, sol, si, y la más grande con un peso mayor de 3 toneladas. El reloj da la hora desde 1909.",
       region: "Pacifico",
