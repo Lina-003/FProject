@@ -1,4 +1,4 @@
-/*import { initializeApp } from "firebase/app";
+import { initializeApp } from "firebase/app";
 import {
     createUserWithEmailAndPassword,
     getAuth,
@@ -7,11 +7,14 @@ import {
     browserSessionPersistence
 } from "firebase/auth";
 import firebaseConfig from "./firebaseConfig"
+import { getFirestore, collection, addDoc, getDocs } from "firebase/firestore";
+import { Product } from "../../types/products";
 
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 export const auth = getAuth(app);
 
-const registerUser = async ({
+/*const registerUser = async ({
                                 email,
                                 username,
                                 password,
@@ -53,10 +56,30 @@ const loginUser = async ({
             const errorMessage = error.message;
             console.log(errorCode, errorMessage);
         });
-};
+};*/
 
+const saveProductInDB = async ( product:Product ) => {
+    try {
+        await addDoc(collection(db, "products"), product);
+      } catch (e) {
+        console.error("Error adding document: ", e);      }
+}
+
+const getProductsFromDB = async (): Promise<Product[]> => {
+  const resp: Product[] = [];
+  const querySnapshot = await getDocs(collection(db, "products"));
+  querySnapshot.forEach((doc) => {
+    console.log(`${doc.id} => ${doc.data()}`);
+    resp.push({
+      ...doc.data(),
+    } as Product);
+  });
+  return resp;
+}
 
 export default {
-    registerUser,
-    loginUser
-};*/
+    /*registerUser,
+    loginUser,*/
+    saveProductInDB,
+    getProductsFromDB
+};
