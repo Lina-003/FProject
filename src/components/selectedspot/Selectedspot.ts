@@ -2,7 +2,7 @@ export enum Attribute4 {
   "headerimg" = "headerimg",
   "title" = "title",
   "spot" = "spot",
-  "description" = "description",
+  "descript" = "descript",
   "stars" = "stars",
   "hotel" = "hotel",
   "restaurant" = "restaurant",
@@ -14,7 +14,7 @@ class SelectedSpot extends HTMLElement {
   headerimg?: string;
   sTitle?: string;
   spot?: string;
-  description?: string;
+  descript?: string;
   stars?: string;
   hotel?: string;
   restaurant?: string;
@@ -27,7 +27,7 @@ class SelectedSpot extends HTMLElement {
       Attribute4.headerimg,
       Attribute4.title,
       Attribute4.spot,
-      Attribute4.description,
+      Attribute4.descript,
       Attribute4.stars,
       Attribute4.hotel,
       Attribute4.restaurant,
@@ -59,8 +59,8 @@ class SelectedSpot extends HTMLElement {
         break;
       case Attribute4.spot:
         this.spot = newValue ? String(newValue) : undefined;
-      case Attribute4.description:
-        this.description = newValue ? String(newValue) : undefined;
+      case Attribute4.descript:
+        this.descript = newValue ? String(newValue) : undefined;
         break;
       case Attribute4.stars:
         this.stars = newValue ? String(newValue) : undefined;
@@ -81,57 +81,110 @@ class SelectedSpot extends HTMLElement {
         break;
     }
 
-    this.render();
   }
 
   render() {
     if (this.shadowRoot) {
-      this.shadowRoot.innerHTML = `
-            <link rel="stylesheet" href="../src/components/selectedspot/Selectedspot.css">
-            
-            <section>
-            <div class="images">
-            <img src=${this.headerimg} alt="">
-            </div>
+      const link = this.ownerDocument.createElement("link");
+      link.setAttribute("rel", "stylesheet");
+      link.setAttribute("href", "../src/components/selectedspot/Selectedspot.css");
   
-            <div class="star-text">
-            <h1>${this.title}</h1>
-            <div class="stars">
-              <img src="/src/components/selectedspot/img/star_icon.png" alt="">
-              <img src="/src/components/selectedspot/img/star_icon.png" alt="">
-              <img src="/src/components/selectedspot/img/star_icon.png" alt="">
-              <img src="/src/components/selectedspot/img/star_icon.png" alt="">
-              <img src="/src/components/selectedspot/img/star_icon.png" alt="">
-            </div>
-            </div>
-
-            <h6>${this.spot}</h6>
-            
-            <p class="description">${this.description}</p>
-
-            <div class="establishment">
-              <label for="establishment">
-                <img src="/src/components/selectedspot/img/hotel_icon.png" alt="">
-              </label>
-                <select>
-                    <option value="">Hoteles</option>
-                    <option value="restaurant">Restaurant</option>
-                </select>
-            </div>
-
-            <div class="recommendation">
-            <label for="recommendation">
-                <img src="/src/components/selectedspot/img/restaurant_icon.png" alt="">
-              </label>
-                <select>
-                    <option value="">Hoteles</option>
-                    <option value="restaurant">Restaurant</option>
-                </select>
-            </div>
-            </section>
-            `;
+      this.shadowRoot.appendChild(link);
+  
+      const section = this.ownerDocument.createElement("section");
+      this.shadowRoot.appendChild(section);
+  
+      const divImg = this.ownerDocument.createElement("div");
+      divImg.setAttribute("class", "images");
+      section.appendChild(divImg);
+  
+      const headerImg = this.ownerDocument.createElement("img");
+      headerImg.setAttribute("src", this.headerimg ?? "");
+      headerImg.setAttribute("alt", "");
+      divImg.appendChild(headerImg);
+  
+      const divTitle = this.ownerDocument.createElement("div");
+      divTitle.setAttribute("class", "star-text");
+      section.appendChild(divTitle);
+  
+      const Title = this.ownerDocument.createElement("h1");
+      Title.textContent = this.title;
+      divTitle.appendChild(Title);
+  
+      const divStart = this.ownerDocument.createElement("div");
+      divStart.setAttribute("class", "stars");
+      divTitle.appendChild(divStart);
+  
+      for (let i = 0; i < 5; i++) {
+        const starImg = this.ownerDocument.createElement("img");
+        starImg.setAttribute("src", "/src/components/selectedspot/img/star_icon.png");
+        starImg.setAttribute("alt", "");
+        divStart.appendChild(starImg);
+      }
+  
+      const pSpot = this.ownerDocument.createElement("h6");
+      pSpot.textContent = this.spot ?? "";
+      section.appendChild(pSpot);
+  
+      const descriptionP = this.ownerDocument.createElement("p");
+      descriptionP.setAttribute("class", "description");
+      descriptionP.textContent = this.descript ?? "";
+      section.appendChild(descriptionP);
+  
+      const divHotel = this.ownerDocument.createElement("div");
+      divHotel.setAttribute("class", "establishment");
+      section.appendChild(divHotel);
+  
+      const hotelLabel = this.ownerDocument.createElement("label");
+      hotelLabel.setAttribute("for", "establishment");
+      divHotel.appendChild(hotelLabel);
+  
+      const hotelImg = this.ownerDocument.createElement("img");
+      hotelImg.setAttribute("src", "/src/components/selectedspot/img/hotel_icon.png");
+      hotelImg.setAttribute("alt", "");
+      hotelLabel.appendChild(hotelImg);
+  
+      const hotelSelect = this.ownerDocument.createElement("select");
+      divHotel.appendChild(hotelSelect);
+  
+      const hotelOption1 = this.ownerDocument.createElement("option");
+      hotelOption1.setAttribute("value", "");
+      hotelOption1.textContent = "Hotel A";
+      hotelSelect.appendChild(hotelOption1);
+  
+      const hotelOption2 = this.ownerDocument.createElement("option");
+      hotelOption2.setAttribute("value", "restaurant");
+      hotelOption2.textContent = "Hotel B";
+      hotelSelect.appendChild(hotelOption2);
+  
+      const divRestaurant = this.ownerDocument.createElement("div");
+      divRestaurant.setAttribute("class", "recommendation");
+      section.appendChild(divRestaurant);
+  
+      const restaurantLabel = this.ownerDocument.createElement("label");
+      restaurantLabel.setAttribute("for", "recommendation");
+      divRestaurant.appendChild(restaurantLabel);
+  
+      const recommendationImg = this.ownerDocument.createElement("img");
+      recommendationImg.setAttribute("src", "/src/components/selectedspot/img/restaurant_icon.png");
+      recommendationImg.setAttribute("alt", "");
+      restaurantLabel.appendChild(recommendationImg);
+  
+      const restaurantSelect = this.ownerDocument.createElement("select");
+      divRestaurant.appendChild(restaurantSelect);
+  
+      const restaurantOption1 = this.ownerDocument.createElement("option");
+      restaurantOption1.setAttribute("value", "");
+      restaurantOption1.textContent = "Restaurante A";
+      restaurantSelect.appendChild(restaurantOption1);
+  
+      const restaurantOption2 = this.ownerDocument.createElement("option");
+      restaurantOption2.setAttribute("value", "restaurant");
+      restaurantOption2.textContent = "Restaurante B";
+      restaurantSelect.appendChild(restaurantOption2);
     }
   }
+  
 }
 customElements.define("app-spot", SelectedSpot);
 export default SelectedSpot;
