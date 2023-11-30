@@ -55,11 +55,7 @@ class Region extends HTMLElement {
       this.header.forEach((nav) => {
         this.shadowRoot?.appendChild(nav);
       });
-      function createRegionElement(
-        title: string,
-        description: string,
-        home: HTMLElement[],
-        regionFilter: string
+      function createRegionElement( title: string, description: string, home: HTMLElement[], regionFilter: string
       ): HTMLElement {
         const regionContainer = document.createElement("div");
       
