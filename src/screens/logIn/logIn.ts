@@ -1,3 +1,7 @@
+import { dispatch } from "../../store";
+import { navigate } from "../../store/actions";
+import { Screens } from "../../types/navigation";
+
 export enum AttributeLogin {
     "logo" = "logo",
     "password" = "password",
@@ -95,15 +99,32 @@ class LogIn extends HTMLElement {
             const passInput = this.ownerDocument.createElement("input");
             passInput.setAttribute("placeholder", "Contraseña");
             passInput.setAttribute("id", "Contraseña");
+            
+            const divButton = this.ownerDocument.createElement("div");
+            const button = this.ownerDocument.createElement("button");
+            button.textContent = "Ingresar";
+            button.addEventListener("click", () => {
+                dispatch(navigate(Screens.DASHBOARD))
+            })
+            
+            const divAcc = this.ownerDocument.createElement("div");
+            divAcc.classList.add("class-acc");
+            const alrdAcc = this.ownerDocument.createElement("h3");
+            alrdAcc.textContent = "No tengo una cuenta";
+            
 
             divLogo.appendChild(imgLogo);
             divInputs.appendChild(email);
             divInputs.appendChild(emInput);
             divInputs.appendChild(password);
             divInputs.appendChild(passInput);
+            divButton.appendChild(button);
+            divAcc.appendChild(alrdAcc);
 
             container.appendChild(divLogo);
             container.appendChild(divInputs);
+            container.appendChild(divButton);
+            container.appendChild(divAcc);
 
             this.shadowRoot?.appendChild(container);
             
