@@ -72,8 +72,10 @@ class Place extends HTMLElement {
 
       main.appendChild(spot);
 
-      const form = this.ownerDocument.createElement("app-comment");
-      form.classList.add("rectangle-toplist");
+      const dForm = this.ownerDocument.createElement("div");
+      dForm.classList.add("form-container");
+      const form = this.ownerDocument.createElement("app-comment")
+      dForm.appendChild(form)
 
       const recommendedContainer = this.ownerDocument.createElement("div");
       recommendedContainer.classList.add("recommended-container");
@@ -86,7 +88,7 @@ class Place extends HTMLElement {
       titleRecommed.textContent = "Lugares recomendados";
       titleRecommed.setAttribute("class", "title-recommed");
 
-      main.appendChild(form);
+      main.appendChild(dForm);
       main.appendChild(titleRecommed);
       main.appendChild(recommendedContainer);
 
