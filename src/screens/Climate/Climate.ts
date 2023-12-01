@@ -36,6 +36,8 @@ class Climate extends HTMLElement {
       homeSpot.setAttribute(Attribute2.title, spot.title);
       homeSpot.setAttribute(Attribute2.spot, spot.spot);
       homeSpot.setAttribute(Attribute2.climate, spot.climate);
+      homeSpot.setAttribute(Attribute2.obj, JSON.stringify(spot));
+
       this.home.push(homeSpot);
       
     });
