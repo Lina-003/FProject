@@ -14,36 +14,36 @@ export enum ScreenActions {
   "NAVIGATE" = "NAVIGATE",
 }
 
-export enum someActions {
+export enum SomeActions {
   "SAVE_COMMENT" = "SAVE_COMMENT",
   "GET_COMMENT" = "GET_COMMENT",
   "SELECT_SPOT" = "SELECT_SPOT",
   "NONE" = "NONE",
 }
 
-export interface saveProductAction {
-  type: someActions.SAVE_COMMENT;
+export interface SaveProductAction {
+  type: SomeActions.SAVE_COMMENT;
   payload: Product;
 }
 
-export interface getProductAction {
-  action: someActions.GET_COMMENT;
+export interface GetProductAction {
+  type: SomeActions.GET_COMMENT;
   payload: Product[];
 }
 
-export interface selectSpotAction {
-  type: someActions.SELECT_SPOT;
+export interface SelectSpotAction {
+  type: SomeActions.SELECT_SPOT;
   payload: Spot;
 }
 
-export interface noneAction {
-  type: someActions.NONE;
+export interface NoneAction {
+  type: SomeActions.NONE;
   payload: {};
 }
 
 export type Actions =
-  | ScreenActions
-  | saveProductAction
-  | getProductAction
-  | selectSpotAction
-  | noneAction;
+  | { type: ScreenActions; payload: string }
+  | { type: SomeActions.SAVE_COMMENT; payload: Product }
+  | { type: SomeActions.GET_COMMENT; payload: Product[] }
+  | { type: SomeActions.SELECT_SPOT; payload: Spot }
+  | { type: SomeActions.NONE; payload: {} };

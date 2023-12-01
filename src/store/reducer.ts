@@ -1,27 +1,27 @@
-import { Actions, AppState, someActions } from "../types/store";
+import { Actions, AppState, SomeActions } from "../types/store";
 
-export const reducer = (currentAction: any, currentState: any) => {
-  const { type, payload } = currentAction;
+export const reducer = (actions: Actions, state: AppState) => {
+  const {type, payload} = actions
 
   switch (type) {
     case "NAVIGATE":
-      currentState.screen = payload;
+      state.screen = payload;
       break;
 
-    case someActions.SAVE_COMMENT:
-      currentState.products = [...currentState.products, payload];
-      return currentState;
+    case SomeActions.SAVE_COMMENT:
+      state.products = [...state.products, payload];
+      return state;
 
-    case someActions.GET_COMMENT:
-      currentState.products = payload;
-      return currentState;
+    case SomeActions.GET_COMMENT:
+      state.products = payload;
+      return state;
 
-    case someActions.SELECT_SPOT:
-      currentState.selectedSpot = payload;
+    case SomeActions.SELECT_SPOT:
+      state.selectedSpot = payload;
       break;
 
     default:
-      return currentState;
+      return state;
   }
-  return currentState;
+  return state;
 };
