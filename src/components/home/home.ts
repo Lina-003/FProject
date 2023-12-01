@@ -65,8 +65,6 @@ class Home extends HTMLElement {
       const imgContent = this.ownerDocument.createElement("img");
       imgContent.classList.add("class-image");
       imgContent.setAttribute("src", `${this.img}`);
-      imgContent.setAttribute("height", "267.57px");
-      imgContent.setAttribute("width", "200.68px");
       imgContent.addEventListener("click", () => {
         dispatch(navigate(Screens.SPOTSELECT))
       })

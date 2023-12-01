@@ -37,13 +37,11 @@ class Signin extends HTMLElement {
         if (this.shadowRoot) this.shadowRoot.innerHTML = "";
         loadCss(this, styles);
 
+            const containerT = this.ownerDocument.createElement("section");
+            containerT.classList.add("class-container");
+
             const container = this.ownerDocument.createElement("section");
             container.classList.add("class-signin");
-
-            const form = this.ownerDocument.createElement("form")
-            form.addEventListener("submit", (e) => {
-                e.preventDefault()
-            })
 
             const divLogo = this.ownerDocument.createElement("div");
             divLogo.classList.add("class-logo");
@@ -122,13 +120,13 @@ class Signin extends HTMLElement {
             divButton.appendChild(button);
             divAcc.appendChild(alrdAcc);
 
-            container.appendChild(form);
             container.appendChild(divLogo);
             container.appendChild(divInputs);
             container.appendChild(divButton);
             container.appendChild(divAcc);
+            containerT.appendChild(container);
 
-            this.shadowRoot?.appendChild(container);
+            this.shadowRoot?.appendChild(containerT);
             
         
     }

@@ -82,3 +82,17 @@ img {
 .dropdown-menu.show {
     display: block;
 }
+
+@media screen and (max-width: 1024px) {
+    #Buscador {
+        display: none;
+    }
+
+    button {
+        display: none;
+    }
+
+    .class-left h3 {
+        display: none;
+    }
+}
