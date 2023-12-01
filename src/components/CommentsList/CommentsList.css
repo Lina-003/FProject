@@ -1,6 +1,38 @@
-section {
-    color: white;
-    font-size: 14px;
-    font-weight:500;
+article {
+    display: flex;
+    gap: 1.5rem;
+    margin: 2rem 0;
+    padding: 0 131px;
+}
+
+.content-text p {
+    color: black;
+    font-size: 1rem;
     font-family: 'Inter', sans-serif;
+    font-weight: 400;
+}
+
+.content-text {
+    width: 60%;
+    background-color: white;
+    padding: 0.7rem 0.5rem;
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 1024px){
+    article {
+        padding: 0 80px;
+    }
+}
+
+@media screen and (max-width: 850px){
+
+    
+}
+
+@media screen and (max-width: 640px){
+    article {
+        padding: 0 40px;
+    }
+
 }
