@@ -113,7 +113,7 @@ class Header extends HTMLElement {
 
         const iconoMenuClose = this.ownerDocument.createElement("img");
         iconoMenuClose.classList.add("class-close");
-        iconoMenuClose.setAttribute("src", "/src/components/imgheader/menu.png")
+        iconoMenuClose.setAttribute("src", "../src/components/imgheader/menu.png")
         
         const search = this.ownerDocument.createElement("input");
         search.setAttribute("type", "search");
