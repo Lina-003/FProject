@@ -91,12 +91,14 @@ class Header extends HTMLElement {
         })
         
         const textReg = this.ownerDocument.createElement("h3");
+        textReg.classList.add("class-region");
         textReg.innerText = `${this.regions}`;
         textReg.addEventListener("click", () => {
             dispatch(navigate(Screens.REGIONS))
         })
         
         const textClim = this.ownerDocument.createElement("h3");
+        textClim.classList.add("class-region");
         textClim.innerText = `${this.climate}`;
         textClim.addEventListener("click", () => {
             dispatch(navigate(Screens.CLIMATE))
@@ -104,6 +106,10 @@ class Header extends HTMLElement {
         
         const divRight = this.ownerDocument.createElement("div");
         divRight.classList.add("class-right");
+
+        const iconoMenu = this.ownerDocument.createElement("img");
+        iconoMenu.classList.add("class-icono");
+        iconoMenu.setAttribute("src", "/src/components/imgheader/menu.png")
         
         const search = this.ownerDocument.createElement("input");
         search.setAttribute("type", "search");
@@ -111,6 +117,7 @@ class Header extends HTMLElement {
         search.setAttribute("id", "Buscador");
 
         const searchButton = this.ownerDocument.createElement("button");
+        searchButton.classList.add("class-buscador")
         searchButton.textContent = "Buscar";
         searchButton.addEventListener("click", () => {
             const searchQuery = search.value;
@@ -118,6 +125,7 @@ class Header extends HTMLElement {
         });
 
         const imgProfile = this.ownerDocument.createElement("img");
+        imgProfile.classList.add("class-profile");
         imgProfile.setAttribute("src", `${this.profile}`);
         imgProfile.setAttribute("height", "35np");
         imgProfile.style.marginLeft = "50px";
@@ -159,6 +167,88 @@ class Header extends HTMLElement {
             dropdownMenu.style.display = (dropdownMenu.style.display === "block") ? "none" : "block";
         });
 
+        const aside = this.ownerDocument.createElement("aside");
+        const container2 = this.ownerDocument.createElement("div");
+        container2.classList.add("class-contenedor");
+        
+        const textReg2 = this.ownerDocument.createElement("h3");
+        textReg2.classList.add("class-texto");
+        textReg2.innerText = `${this.regions}`;
+        textReg2.addEventListener("click", () => {
+            dispatch(navigate(Screens.REGIONS))
+        })
+        
+        const textClim2 = this.ownerDocument.createElement("h3");
+        textClim2.classList.add("class-texto");
+        textClim2.innerText = `${this.climate}`;
+        textClim2.addEventListener("click", () => {
+            dispatch(navigate(Screens.CLIMATE))
+        })
+        
+        const search2 = this.ownerDocument.createElement("input");
+        search2.setAttribute("type", "search");
+        search2.setAttribute("placeholder", "Buscar");
+        search2.setAttribute("id", "Buscador2");
+
+        const searchButton2 = this.ownerDocument.createElement("button");
+        searchButton2.classList.add("class-buscar");
+        searchButton2.textContent = "Buscar";
+        searchButton2.addEventListener("click", () => {
+            const searchQuery = search.value;
+            console.log(searchQuery);
+        });
+
+        const imgProfile2 = this.ownerDocument.createElement("img");
+        imgProfile2.classList.add("class-profile");
+        imgProfile2.setAttribute("src", `${this.profile}`);
+        imgProfile2.setAttribute("height", "35np");
+        imgProfile2.style.marginLeft = "50px";
+
+        const dropdownMenu2 = this.ownerDocument.createElement("div");
+        dropdownMenu2.classList.add("dropdown-menu");
+        dropdownMenu2.style.display = "none";
+
+        const menuOptions2 = ["Log out"];
+
+        const handleLogOutClick2 = async () => {
+            try {
+                const auth = getAuth();
+                await signOut(auth);
+                alert("Cierre de sesión exitoso");
+                dispatch(navigate(Screens.LOGIN));
+            } catch (error) {
+                alert("Error al cerrar sesión:");
+            }
+        };
+
+        menuOptions2.forEach(optionText2 => {
+            const menuItem2 = this.ownerDocument.createElement("div");
+            menuItem2.textContent = optionText2;
+
+        switch (optionText2) {
+            case "Log out":
+            menuItem2.addEventListener("click", handleLogOutClick2);
+            break;
+            default:
+            break;
+        }
+
+        dropdownMenu2.appendChild(menuItem2);
+        });
+
+        imgProfile2.addEventListener("click", () => {
+            console.log("Clic en la foto de perfil");
+            dropdownMenu2.style.display = (dropdownMenu2.style.display === "block") ? "none" : "block";
+        });
+
+        divLeft.appendChild(aside);
+        aside.appendChild(container2);
+        container2.appendChild(textReg2);
+        container2.appendChild(textClim2);
+        container2.appendChild(search2);
+        container2.appendChild(searchButton2);
+        container2.appendChild(imgProfile2);
+        container2.appendChild(dropdownMenu2);
 
         divLeft.appendChild(imgLogo);
         divLeft.appendChild(textReg);
@@ -168,6 +258,7 @@ class Header extends HTMLElement {
         divRight.appendChild(searchButton);
         divRight.appendChild(imgProfile);
         divRight.appendChild(dropdownMenu);
+        divRight.appendChild(iconoMenu);
 
         container.appendChild(divLeft);
         container.appendChild(divRight);
