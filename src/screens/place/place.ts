@@ -4,17 +4,15 @@ import { Attribute4 } from "../../components/selectedspot/Selectedspot";
 import { data } from "../../dataHeader";
 import { Attribute3 } from "../../components/recommended/Recommended";
 import { rSpots } from "../../dataSpot";
-import { loadCss } from "../../utils/styles";
-import styles from './place.css';
+import { addObserver, appState } from "../../store";
 
 class Place extends HTMLElement {
   header: Header[] = [];
-  sSpot: SelectedSpot[] = [];
   recommended: Recommended[] = [];
-
   constructor() {
     super();
     this.attachShadow({ mode: "open" });
+    addObserver(this);
 
     data.forEach((menu) => {
       const menuHeader = this.ownerDocument.createElement(
@@ -38,6 +36,8 @@ class Place extends HTMLElement {
       recommSpot.setAttribute(Attribute3.title, spots.title);
       recommSpot.setAttribute(Attribute3.spot, spots.spot);
 
+      recommSpot.setAttribute(Attribute3.obj, JSON.stringify(spots));
+
       this.recommended.push(recommSpot);
     });
   }
@@ -47,8 +47,12 @@ class Place extends HTMLElement {
   }
 
   render() {
-    if (this.shadowRoot) this.shadowRoot.innerHTML = "";
-        loadCss(this, styles);
+    if (this.shadowRoot) {
+      const link = this.ownerDocument.createElement("link");
+      link.setAttribute("rel", "stylesheet");
+      link.setAttribute("href", "/src/screens/place/place.css");
+
+      this.shadowRoot.appendChild(link);
 
       const main = this.ownerDocument.createElement("main");
       main.classList.add("main-container");
@@ -56,24 +60,24 @@ class Place extends HTMLElement {
       this.header.forEach((nav) => {
         main.appendChild(nav);
       });
-      const spot = this.ownerDocument.createElement("app-spot");
-      spot.setAttribute(
-        Attribute4.headerimg,
-        "https://www.eluniversal.com.mx/resizer/7Loc41J5hFF0EhhlDfuOFfrixCE=/1100x666/cloudfront-us-east-1.images.arcpublishing.com/eluniversal/PS36GSZDDNBVDF5HUA2KBNKYL4.jpg"
-      );
-      spot.setAttribute(Attribute4.title, "Caño Cristales");
-      spot.setAttribute(Attribute4.spot, "Sierra de la Macarena, Meta");
-      spot.setAttribute(
-        Attribute4.descript,
-        "Caño Cristales es un río de Colombia que está ubicado en la sierra de la Macarena, en el municipio del mismo nombre, en el departamento del Meta."
-      );
 
-      main.appendChild(spot);
+      if (appState.selectedSpot) {
+        const spot = this.ownerDocument.createElement("app-spot");
+        spot.setAttribute(Attribute4.headerimg, appState.selectedSpot.img);
+        spot.setAttribute(Attribute4.title, appState.selectedSpot.title);
+        spot.setAttribute(Attribute4.spot, appState.selectedSpot.spot);
+        spot.setAttribute(
+          Attribute4.descript,
+          appState.selectedSpot.description
+        );
+
+        main.appendChild(spot);
+      }
 
       const dForm = this.ownerDocument.createElement("div");
       dForm.classList.add("form-container");
-      const form = this.ownerDocument.createElement("app-comment")
-      dForm.appendChild(form)
+      const form = this.ownerDocument.createElement("app-comment");
+      dForm.appendChild(form);
 
       const recommendedContainer = this.ownerDocument.createElement("div");
       recommendedContainer.classList.add("recommended-container");
@@ -90,8 +94,8 @@ class Place extends HTMLElement {
       main.appendChild(titleRecommed);
       main.appendChild(recommendedContainer);
 
-      this.shadowRoot?.appendChild(main);
-    
+      this.shadowRoot.appendChild(main);
+    }
   }
 }
 
