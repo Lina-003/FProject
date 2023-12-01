@@ -6,6 +6,8 @@ import { Attribute4 } from "../../components/selectedspot/Selectedspot";
 import { data } from "../../dataHeader";
 import { tSpot, rSpots } from "../../dataSpot";
 import { Spot } from "../../types/spot";
+import { loadCss } from "../../utils/styles";
+import styles from './style.css';
 
 class Dashboard extends HTMLElement {
   header: Header[] = [];
@@ -58,12 +60,8 @@ class Dashboard extends HTMLElement {
   }
 
   render() {
-    if (this.shadowRoot) {
-      const link = this.ownerDocument.createElement("link");
-      link.setAttribute("rel", "stylesheet");
-      link.setAttribute("href", "/src/screens/dashboard/style.css");
-
-      this.shadowRoot.appendChild(link);
+    if (this.shadowRoot) this.shadowRoot.innerHTML = "";
+    loadCss(this, styles);
 
       this.header.forEach((nav) => {
         this.shadowRoot?.appendChild(nav);
@@ -100,6 +98,5 @@ class Dashboard extends HTMLElement {
       }
     }
   }
-}
 
 customElements.define("app-dashboard", Dashboard);
