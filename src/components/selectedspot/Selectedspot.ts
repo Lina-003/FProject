@@ -115,10 +115,7 @@ class SelectedSpot extends HTMLElement {
 
       for (let i = 0; i < 5; i++) {
         const starImg = this.ownerDocument.createElement("img");
-        starImg.setAttribute(
-          "src",
-          "/src/components/selectedspot/img/star_icon.png"
-        );
+        starImg.setAttribute("src", "/src/components/selectedspot/img/star_icon.png");
         starImg.setAttribute("alt", "");
         divStart.appendChild(starImg);
       }
@@ -141,9 +138,7 @@ class SelectedSpot extends HTMLElement {
       divHotel.appendChild(hotelLabel);
 
       const hotelImg = this.ownerDocument.createElement("img");
-      hotelImg.setAttribute(
-        "src",
-        "/src/components/selectedspot/img/hotel_icon.png"
+      hotelImg.setAttribute("src", "/src/components/selectedspot/img/hotel_icon.png"
       );
       hotelImg.setAttribute("alt", "");
       hotelLabel.appendChild(hotelImg);
@@ -170,9 +165,7 @@ class SelectedSpot extends HTMLElement {
       divRestaurant.appendChild(restaurantLabel);
 
       const recommendationImg = this.ownerDocument.createElement("img");
-      recommendationImg.setAttribute(
-        "src",
-        "/src/components/selectedspot/img/restaurant_icon.png"
+      recommendationImg.setAttribute("src", "/src/components/selectedspot/img/restaurant_icon.png"
       );
       recommendationImg.setAttribute("alt", "");
       restaurantLabel.appendChild(recommendationImg);

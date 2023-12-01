@@ -69,7 +69,6 @@ class Recommended extends HTMLElement {
     imgContent.setAttribute("height", "267.57px");
     imgContent.setAttribute("width", "200.68px");
     imgContent.addEventListener("click", () => {
-      console.log(this.obj);
       if (this.obj) {
         let newObj = JSON.parse(this.obj) as Spot;
         dispatch(selectSpot(newObj));

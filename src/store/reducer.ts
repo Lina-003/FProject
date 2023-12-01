@@ -1,7 +1,6 @@
 import { Actions, AppState, someActions } from "../types/store";
 
 export const reducer = (currentAction: any, currentState: any) => {
-  console.log("reducer", currentAction, currentState);
   const { type, payload } = currentAction;
 
   switch (type) {
