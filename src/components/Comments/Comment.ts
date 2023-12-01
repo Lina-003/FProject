@@ -22,8 +22,11 @@ class Comment extends HTMLElement {
         if (this.shadowRoot) this.shadowRoot.innerHTML = "";
         loadCss(this, style);
 
-        const containerCom = this.ownerDocument.createElement("section");
+        const contentComment = this.ownerDocument.createElement("section")
+
         const comm = this.ownerDocument.createElement("textarea");
+        comm.setAttribute("placeholder", "Agrega tu comentario (max 300 palabras)")
+        comm.setAttribute("rows", "10")
         comm.addEventListener("change", (e: any) => {
           userInput.comm = e.target.value;
         })
@@ -35,9 +38,10 @@ class Comment extends HTMLElement {
             dispatch(await saveProduct(userInput))
         })
 
-        this.shadowRoot?.appendChild(comm);
-        this.shadowRoot?.appendChild(btn);
-        this.shadowRoot?.appendChild(containerCom);
+        contentComment.appendChild(comm)
+        contentComment.appendChild(btn)
+
+        this.shadowRoot?.appendChild(contentComment);
     }
 }
 
