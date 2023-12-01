@@ -22,6 +22,7 @@ class Comment extends HTMLElement {
         if (this.shadowRoot) this.shadowRoot.innerHTML = "";
         loadCss(this, style);
 
+        const containerCom = this.ownerDocument.createElement("section");
         const comm = this.ownerDocument.createElement("textarea");
         comm.addEventListener("change", (e: any) => {
           userInput.comm = e.target.value;
@@ -36,6 +37,7 @@ class Comment extends HTMLElement {
 
         this.shadowRoot?.appendChild(comm);
         this.shadowRoot?.appendChild(btn);
+        this.shadowRoot?.appendChild(containerCom);
     }
 }
 

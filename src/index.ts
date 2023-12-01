@@ -6,7 +6,8 @@ import "./screens/Climate/Climate";
 import "./screens/logIn/logIn";
 import "./screens/signIn/signIn";
 import { Screens } from "./types/navigation";
-import { addObserver, appState } from "./store";
+import { addObserver, appState, dispatch } from "./store";
+import { getProducts } from "./store/actions";
 
 class AppContainer extends HTMLElement {
   constructor() {
@@ -15,7 +16,8 @@ class AppContainer extends HTMLElement {
     addObserver(this);
   }
 
-  connectedCallback() {
+  async connectedCallback() {
+    dispatch(await getProducts())
     this.render();
   }
 

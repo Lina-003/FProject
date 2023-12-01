@@ -4,9 +4,9 @@ import { Product } from "../types/products";
 import { Spot } from "../types/spot";
 import {
   Actions,
-  noneAction,
-  selectSpotAction,
-  someActions,
+  NoneAction,
+  SelectSpotAction,
+  SomeActions,
 } from "../types/store";
 import firebase from "../utils/firebase/firebase";
 
@@ -17,10 +17,10 @@ export const navigate = (screen: Screens) => {
   };
 };
 
-export const saveProduct = (product: Product): Actions => {
-  firebase.saveProductInDB(product);
+export const saveProduct = async (product: Product): Promise<Actions> => {
+  await firebase.saveProductInDB(product);
   return {
-    type: someActions.SAVE_COMMENT,
+    type: SomeActions.SAVE_COMMENT,
     payload: product,
   };
 };
@@ -28,14 +28,14 @@ export const saveProduct = (product: Product): Actions => {
 export const getProducts = async (): Promise<Actions> => {
   const products = await firebase.getProductsFromDB();
   return {
-    action: someActions.GET_COMMENT,
+    type: SomeActions.GET_COMMENT,
     payload: products,
   };
 };
 
 export const selectSpot = (spot: Spot): Actions => {
   return {
-    type: someActions.SELECT_SPOT,
+    type: SomeActions.SELECT_SPOT,
     payload: spot,
   };
 };
