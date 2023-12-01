@@ -2,10 +2,22 @@ import Storage, { PersistanceKeys } from "../utils/storage";
 import { Actions, AppState, Observer } from "../types/store";
 import { reducer } from "./reducer";
 import { Screens } from "../types/navigation";
+import { Spot } from "../types/spot";
+
+const emptySpot: Spot = {
+  img: "",
+  name: "",
+  title: "",
+  spot: "",
+  description: "",
+  region: "",
+  climate: "",
+};
 
 const emptyState = {
   screen: Screens.LOGIN,
   products: [],
+  selectedSpot: emptySpot,
 };
 
 export let appState = Storage.get<AppState>({
@@ -23,8 +35,7 @@ const notifyObservers = () => observers.forEach((o) => o.render());
 export const dispatch = (action: any) => {
   const clone = JSON.parse(JSON.stringify(appState));
   const newState = reducer(action, clone);
-  appState = newState;
-
+  appState = { ...appState, ...newState };
   persistStore(newState);
   notifyObservers();
 };

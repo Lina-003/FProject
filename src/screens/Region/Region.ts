@@ -36,6 +36,8 @@ class Region extends HTMLElement {
       homeSpot.setAttribute(Attribute2.title, spot.title);
       homeSpot.setAttribute(Attribute2.spot, spot.spot);
       homeSpot.setAttribute(Attribute2.region, spot.region);
+      homeSpot.setAttribute(Attribute2.obj, JSON.stringify(spot));
+      
       this.home.push(homeSpot);
       
     });
