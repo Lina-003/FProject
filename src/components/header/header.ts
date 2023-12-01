@@ -109,7 +109,7 @@ class Header extends HTMLElement {
 
         const iconoMenu = this.ownerDocument.createElement("img");
         iconoMenu.classList.add("class-icono");
-        iconoMenu.setAttribute("src", "/src/components/imgheader/menu.png")
+        iconoMenu.setAttribute("src", "../src/components/imgheader/menu.png")
 
         const iconoMenuClose = this.ownerDocument.createElement("img");
         iconoMenuClose.classList.add("class-close");

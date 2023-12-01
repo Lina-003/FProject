@@ -45,7 +45,7 @@ class LogIn extends HTMLElement {
             const divLogo = this.ownerDocument.createElement("div");
             divLogo.classList.add("class-logo");
             const imgLogo = document.createElement('img');
-            imgLogo.setAttribute("src", "/src/screens/img/quiwe2.png")
+            imgLogo.setAttribute("src", "../src/screens/img/quiwe2.png")
             
             const divInputs = this.ownerDocument.createElement("div");
             const email = this.ownerDocument.createElement("h3");

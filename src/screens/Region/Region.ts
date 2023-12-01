@@ -1,6 +1,6 @@
 import { Header, Home } from "../../components/index";
-import { Attribute } from "../../components/Header/header";
-import { Attribute2 } from "../../components/Home/home";
+import { Attribute } from "../../components/header/header";
+import { Attribute2 } from "../../components/home/home";
 import { data } from "../../dataHeader";
 import { rSpots } from "../../dataSpot";
 import { loadCss } from "../../utils/styles";
