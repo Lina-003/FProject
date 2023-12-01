@@ -100,6 +100,26 @@ img {
     
 }
 
+.dropdown-menu2 {
+   
+    display: none;
+    position: absolute;
+    top: 23px;
+    left: 23px;
+    z-index: 1000;
+    transition: none;
+    color: white;
+    font-size: 14px;
+    font-weight:500;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    line-height: 2;
+    padding: 6px;
+    border: 1px solid #ededed;
+    width: 52px;
+    
+}
+
 .dropdown-menu.show {
     display: block;
 }
@@ -124,6 +144,10 @@ aside {
     height: 100vh;
     background-color: black;
 
+}
+
+.class-profile2 {
+    display: none;
 }
 
 .class-contenedor {
@@ -157,5 +181,10 @@ aside {
 
     .class-profile {
         display: none;
+    }
+    .dropdown-menu2 {
+   
+        display: block;
+        
     }
 }

@@ -203,14 +203,13 @@ class Header extends HTMLElement {
         });
 
         const imgProfile2 = this.ownerDocument.createElement("img");
-        imgProfile2.classList.add("class-profile");
+        imgProfile2.classList.add("class-profile2");
         imgProfile2.setAttribute("src", `${this.profile}`);
         imgProfile2.setAttribute("height", "35np");
         imgProfile2.style.marginLeft = "50px";
 
         const dropdownMenu2 = this.ownerDocument.createElement("div");
-        dropdownMenu2.classList.add("dropdown-menu");
-        dropdownMenu2.style.display = "none";
+        dropdownMenu2.classList.add("dropdown-menu2");
 
         const menuOptions2 = ["Log out"];
 
