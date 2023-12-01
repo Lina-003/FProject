@@ -1,5 +1,5 @@
-export { default as Header } from "./header/header";
-export {default as Home} from "./home/home";
+export { default as Header } from "./Header/header";
+export {default as Home} from "./Home/home";
 export { default as Recommended } from "./recommended/Recommended";
 export { default as SelectedSpot} from "./selectedspot/Selectedspot"
 export { default as Comment } from "./Comments/Comment";

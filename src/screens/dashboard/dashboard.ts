@@ -1,6 +1,6 @@
 import { Header, Home, Recommended } from "../../components/index";
-import { Attribute } from "../../components/header/header";
-import { Attribute2 } from "../../components/home/home";
+import { Attribute } from "../../components/Header/header";
+import { Attribute2 } from "../../components/Home/home";
 import { Attribute3 } from "../../components/recommended/Recommended";
 import { Attribute4 } from "../../components/selectedspot/Selectedspot";
 import { data } from "../../dataHeader";

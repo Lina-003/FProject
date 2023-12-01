@@ -1,5 +1,5 @@
 import { Header, Recommended } from "../../components/index";
-import { Attribute } from "../../components/header/header";
+import { Attribute } from "../../components/Header/header";
 import { Attribute4 } from "../../components/selectedspot/Selectedspot";
 import { data } from "../../dataHeader";
 import { Attribute3 } from "../../components/recommended/Recommended";
