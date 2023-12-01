@@ -110,6 +110,10 @@ class Header extends HTMLElement {
         const iconoMenu = this.ownerDocument.createElement("img");
         iconoMenu.classList.add("class-icono");
         iconoMenu.setAttribute("src", "/src/components/imgheader/menu.png")
+
+        const iconoMenuClose = this.ownerDocument.createElement("img");
+        iconoMenuClose.classList.add("class-close");
+        iconoMenuClose.setAttribute("src", "/src/components/imgheader/menu.png")
         
         const search = this.ownerDocument.createElement("input");
         search.setAttribute("type", "search");
@@ -243,6 +247,7 @@ class Header extends HTMLElement {
 
         divLeft.appendChild(aside);
         aside.appendChild(container2);
+        aside.appendChild(iconoMenuClose)
         container2.appendChild(textReg2);
         container2.appendChild(textClim2);
         container2.appendChild(search2);
@@ -264,6 +269,22 @@ class Header extends HTMLElement {
         container.appendChild(divRight);
 
         this.shadowRoot?.appendChild(container);
+
+        iconoMenu.addEventListener("click", ()=> {
+            if (aside.style.display = "none") {
+                aside.style.display = "block"
+            } else {
+                aside.style.display = "none"
+            }
+        })
+
+        iconoMenuClose.addEventListener("click", () => {
+            if (aside.style.display = "block") {
+                aside.style.display = "none" 
+            } else {
+                aside.style.display = "block"
+            }
+        } )
        
     }
 }
