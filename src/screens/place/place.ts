@@ -1,10 +1,12 @@
-import { Header, SelectedSpot, Recommended } from "../../components/index";
+import { Header, Recommended } from "../../components/index";
 import { Attribute } from "../../components/Header/header";
 import { Attribute4 } from "../../components/selectedspot/Selectedspot";
 import { data } from "../../dataHeader";
 import { Attribute3 } from "../../components/recommended/Recommended";
 import { rSpots } from "../../dataSpot";
 import { addObserver, appState } from "../../store";
+import { loadCss } from "../../utils/styles";
+import styles from './place.css';
 
 class Place extends HTMLElement {
   header: Header[] = [];
@@ -47,12 +49,8 @@ class Place extends HTMLElement {
   }
 
   render() {
-    if (this.shadowRoot) {
-      const link = this.ownerDocument.createElement("link");
-      link.setAttribute("rel", "stylesheet");
-      link.setAttribute("href", "/src/screens/place/place.css");
-
-      this.shadowRoot.appendChild(link);
+    if (this.shadowRoot) this.shadowRoot.innerHTML = "";
+    loadCss(this, styles);
 
       const main = this.ownerDocument.createElement("main");
       main.classList.add("main-container");
@@ -94,9 +92,8 @@ class Place extends HTMLElement {
       main.appendChild(titleRecommed);
       main.appendChild(recommendedContainer);
 
-      this.shadowRoot.appendChild(main);
+      this.shadowRoot?.appendChild(main);
     }
   }
-}
 
 customElements.define("app-place", Place);
